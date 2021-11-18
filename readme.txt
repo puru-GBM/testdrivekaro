@@ -1,1 +1,5 @@
-i can add something on it
+Requirments 
+
+/*imp.*/
+-> python 3.7
+-> django
