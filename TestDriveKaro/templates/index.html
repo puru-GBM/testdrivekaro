@@ -12,17 +12,34 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
     <style>
+        body {
+            text-align: center;
+            font-family: 'futura-pt', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap');
         .container {
             text-align: right;
             position: absolute;
             width: 100%;
+            height: 50px;
             z-index: 2;
             color: black;
             font-weight: bold;
-            /* Fallback color */
-            /* Black w/opacity/see-through */
         }
-        /* Position text in the middle of the page/image */
+        
+        .back {
+            background-color: rgb(237, 235, 235);
+            font-family: 'futura-pt', sans-serif;
+            text-align: center;
+            height: auto;
+            width: 100%;
+            margin-bottom: 3%;
+            padding: 0px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1366px;
+        }
         
         .bg-text {
             position: absolute;
@@ -48,8 +65,13 @@
             color: black;
         }
         
+        .topnav .icon {
+            display: none;
+        }
+        
         .flo {
             float: left;
+            font-size: 18px;
         }
         
         .footer-basic {
@@ -119,15 +141,16 @@
         .imgs {
             /* The image used */
             /* The image used */
-            background-image: url("{% static 'img/superb.jpg' %}");
+            background-image: url("{% static 'img/header5.jpg' %}");
             /* Set a specific height */
-            min-height: 500px;
+            min-height: 300px;
             /* Create the parallax scrolling effect */
             background-attachment: fixed;
-            background-position: center;
+            background-position: top;
             background-repeat: no-repeat;
-            background-size: cover;
-            background-size: auto auto;
+            background-size: 100% 75%;
+            width: 100%;
+            height: auto;
         }
         
         #navbar {
@@ -177,16 +200,601 @@
         
         @media screen and (max-width: 580px) {
             #navbar {
-                padding: 10px 10px !important;
+                padding: 0px 10px !important;
                 /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
             }
-            #navbar c {
+            #navbar .c {
                 float: none;
-                display: block;
+                display: inline-block;
                 text-align: left;
             }
             #navbar-right {
                 float: none;
+            }
+            .topnav a:not(:first-child) {
+                display: none;
+            }
+            .topnav .c.icon {
+                float: right;
+                display: block;
+            }
+            .sel {
+                display: inline-block;
+                text-align: left;
+                padding: 9px 20px 9px 5px;
+                margin: 9px 4px;
+                width: 150px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+            }
+            .im {
+                text-align: left;
+                margin-right: 40px;
+            }
+            .sels {
+                display: inline-block;
+                text-align: center;
+                padding: 9px 20px 9px 6px;
+                margin: 9px 4px;
+                width: 150px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                border-left: none;
+                border-right: none;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+                background-image: url("/static/img/sr1.png");
+                background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: center;
+            }
+            .sels:hover {
+                color: #1100fc;
+                background-image: url("{% static 'img/sr3.gif' %}");
+                background-size: 27px 27px;
+                background-repeat: no-repeat;
+                transition: 1.0s;
+            }
+            .sel.active::before {
+                transform: rotateX(-180deg);
+            }
+            .sel.active::after {
+                transform: rotateX(360deg);
+            }
+            .sel:hover {
+                color: #3f6bfc;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            #navbar {
+                padding: 0px 10px !important;
+                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
+            }
+            #navbar c {
+                float: none;
+                display: inline-block;
+                text-align: left;
+            }
+            #navbar-right {
+                float: none;
+            }
+            .topnav a:not(:first-child) {
+                display: none;
+            }
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+            .topnav.responsive {
+                position: relative;
+            }
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .sel {
+                display: inline-block;
+                text-align: left;
+                padding: 9px 20px 9px 5px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+            }
+            .im {
+                text-align: left;
+                margin-right: 40px;
+            }
+            .sels {
+                display: inline-block;
+                text-align: center;
+                padding: 9px 20px 9px 6px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                border-left: none;
+                border-right: none;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+                background-image: url("/static/img/sr1.png");
+                background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: center;
+            }
+            .sels:hover {
+                color: #1100fc;
+                background-image: url("{% static 'img/sr3.gif' %}");
+                background-size: 27px 27px;
+                background-repeat: no-repeat;
+                transition: 1.0s;
+            }
+            .sel.active::before {
+                transform: rotateX(-180deg);
+            }
+            .sel.active::after {
+                transform: rotateX(360deg);
+            }
+            .sel:hover {
+                color: #3f6bfc;
+            }
+        }
+        
+        @media screen and (max-width: 400px) {
+            #navbar {
+                padding: 0px 10px !important;
+                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
+            }
+            #navbar c {
+                float: none;
+                display: inline-block;
+                text-align: left;
+            }
+            #navbar-right {
+                float: none;
+            }
+            .topnav a:not(:first-child) {
+                display: none;
+            }
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+            .topnav.responsive {
+                position: relative;
+            }
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .sel {
+                display: inline-block;
+                text-align: left;
+                padding: 9px 20px 9px 5px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #000;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+            }
+            .im {
+                text-align: left;
+                margin-right: 40px;
+            }
+            .sels {
+                display: inline-block;
+                text-align: center;
+                padding: 9px 20px 9px 6px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                border-left: none;
+                border-right: none;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+                background-image: url("/static/img/sr1.png");
+                background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: center;
+            }
+            .sels:hover {
+                color: #1100fc;
+                background-image: url("{% static 'img/sr3.gif' %}");
+                background-size: 27px 27px;
+                background-repeat: no-repeat;
+                transition: 1.0s;
+            }
+            .sel.active::before {
+                transform: rotateX(-180deg);
+            }
+            .sel.active::after {
+                transform: rotateX(360deg);
+            }
+            .sel:hover {
+                color: #3f6bfc;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            #navbar {
+                padding: 0px 10px !important;
+                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
+            }
+            #navbar c {
+                float: none;
+                display: inline-block;
+                text-align: left;
+            }
+            #navbar-right {
+                float: none;
+            }
+            .topnav a:not(:first-child) {
+                display: none;
+            }
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+            .topnav.responsive {
+                position: relative;
+            }
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .sel {
+                display: inline-block;
+                text-align: left;
+                padding: 9px 20px 9px 5px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+            }
+            .im {
+                text-align: left;
+                margin-right: 40px;
+            }
+            .sels {
+                display: inline-block;
+                text-align: center;
+                padding: 9px 20px 9px 6px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                border-left: none;
+                border-right: none;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+                background-image: url("/static/img/sr1.png");
+                background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: center;
+            }
+            .sels:hover {
+                color: #1100fc;
+                background-image: url("{% static 'img/sr3.gif' %}");
+                background-size: 27px 27px;
+                background-repeat: no-repeat;
+                transition: 1.0s;
+            }
+            .sel.active::before {
+                transform: rotateX(-180deg);
+            }
+            .sel.active::after {
+                transform: rotateX(360deg);
+            }
+            .sel:hover {
+                color: #3f6bfc;
+            }
+        }
+        
+        @media screen and (min-width:761px) {
+            .back {
+                background-color: rgba(192, 192, 192, 0.884);
+                text-align: center;
+                height: auto;
+                width: 100%;
+            }
+            .sel {
+                color: black;
+                font-size: 2.5rem;
+                display: inline-block;
+                margin: 9px 3px;
+                width: 200px;
+                position: relative;
+                cursor: pointer;
+                border-radius: 5%;
+                border: none;
+            }
+        }
+        
+        @media screen and (max-width:760px) {
+            .back {
+                background-color: rgba(192, 192, 192, 0.884);
+                text-align: center;
+                height: auto;
+                width: 100%;
+            }
+            .sel {
+                color: black;
+                font-size: 2.5rem;
+                display: inline-block;
+                margin: 9px 3px;
+                width: 200px;
+                position: relative;
+                cursor: pointer;
+                border-radius: 5%;
+                border: none;
+            }
+            .sels {
+                color: black;
+            }
+        }
+        
+        @media screen and (max-width:480px) {
+            .back {
+                background-color: rgba(192, 192, 192, 0.884);
+                text-align: center;
+                height: auto;
+                width: 100%;
+            }
+            .sel {
+                color: black;
+                font-size: 2.5rem;
+                display: inline-block;
+                margin: 9px 3px;
+                width: 200px;
+                position: relative;
+                cursor: pointer;
+                border-radius: 5%;
+                border: none;
+            }
+            .sels {
+                color: black;
+            }
+            .sel {
+                display: inline-block;
+                text-align: left;
+                padding: 9px 20px 9px 5px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+            }
+            .im {
+                text-align: left;
+                margin-right: 40px;
+            }
+            .sels {
+                display: inline-block;
+                text-align: center;
+                padding: 9px 20px 9px 6px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                border-left: none;
+                border-right: none;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+                background-image: url("/static/img/sr1.png");
+                background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: center;
+            }
+            .sels:hover {
+                color: #1100fc;
+                background-image: url("{% static 'img/sr3.gif' %}");
+                background-size: 27px 27px;
+                background-repeat: no-repeat;
+                transition: 1.0s;
+            }
+            .sel.active::before {
+                transform: rotateX(-180deg);
+            }
+            .sel.active::after {
+                transform: rotateX(360deg);
+            }
+            .sel:hover {
+                color: #3f6bfc;
+            }
+        }
+        
+        @media screen and (max-width:360px) {
+            .back {
+                background-color: rgba(192, 192, 192, 0.884);
+                text-align: center;
+                height: auto;
+                width: 100%;
+            }
+            .sel {
+                color: black;
+                font-size: 2.5rem;
+                display: inline-block;
+                margin: 9px 3px;
+                width: 200px;
+                position: relative;
+                cursor: pointer;
+                border-radius: 5%;
+                border: none;
+            }
+            .sels {
+                color: black;
+            }
+            .sel {
+                display: inline-block;
+                text-align: left;
+                padding: 9px 20px 9px 5px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+            }
+            .im {
+                text-align: left;
+                margin-right: 40px;
+            }
+            .sels {
+                display: inline-block;
+                text-align: center;
+                padding: 9px 20px 9px 6px;
+                margin: 9px 4px;
+                width: 200px;
+                line-height: 1.2;
+                position: relative;
+                font-family: 'futura-pt', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                cursor: pointer;
+                color: #666;
+                border-top: 1px solid #22222238;
+                border-bottom: 1px solid #22222238;
+                border-left: none;
+                border-right: none;
+                letter-spacing: .3px;
+                vertical-align: middle;
+                background: transparent;
+                background-image: url("/static/img/sr1.png");
+                background-repeat: no-repeat;
+                background-position-x: left;
+                background-position-y: center;
+            }
+            .sels:hover {
+                color: #1100fc;
+                background-image: url("{% static 'img/sr3.gif' %}");
+                background-size: 27px 27px;
+                background-repeat: no-repeat;
+                transition: 1.0s;
+            }
+            .sel.active::before {
+                transform: rotateX(-180deg);
+            }
+            .sel.active::after {
+                transform: rotateX(360deg);
+            }
+            .sel:hover {
+                color: #3f6bfc;
             }
         }
         
@@ -259,7 +867,188 @@
             background-color: white;
             color: yellowgreen
         }
+        /* ===== Resets and Housekeeping ===== */
+        /* ===== Actual Styles ===== */
+        /* ===== Horizontal Rule ===== */
+        /* ===== Select Box ===== */
+        
+        .sel {
+            display: inline-block;
+            text-align: left;
+            padding: 9px 20px 9px 5px;
+            margin: 9px 4px;
+            width: 180px;
+            line-height: 1.2;
+            position: relative;
+            font-family: 'futura-pt', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            cursor: pointer;
+            color: #666;
+            border-top: 1px solid #22222238;
+            border-bottom: 1px solid #22222238;
+            letter-spacing: .3px;
+            vertical-align: middle;
+            background: transparent;
+        }
+        
+        .im {
+            text-align: left;
+            margin-right: 40px;
+        }
+        
+        .sels {
+            display: inline-block;
+            text-align: center;
+            padding: 9px 20px 9px 6px;
+            margin: 9px 4px;
+            width: 180px;
+            line-height: 1.2;
+            position: relative;
+            font-family: 'futura-pt', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            cursor: pointer;
+            color: #666;
+            border-top: 1px solid #22222238;
+            border-bottom: 1px solid #22222238;
+            border-left: none;
+            border-right: none;
+            letter-spacing: .3px;
+            vertical-align: middle;
+            background: transparent;
+            background-image: url("/static/img/sr1.png");
+            background-repeat: no-repeat;
+            background-position-x: left;
+            background-position-y: center;
+        }
+        
+        .sels:hover {
+            color: #1100fc;
+            background-image: url("{% static 'img/sr3.gif' %}");
+            background-size: 27px 27px;
+            background-repeat: no-repeat;
+            transition: 1.0s;
+        }
+        
+        .sel.active::before {
+            transform: rotateX(-180deg);
+        }
+        
+        .sel.active::after {
+            transform: rotateX(360deg);
+        }
+        
+        .sel:hover {
+            color: #3f6bfc;
+        }
+        
+        .sel__placeholder {
+            display: block;
+            font-family: 'Quicksand';
+            font-size: 2.3em;
+            color: #838e95;
+            padding: 0.2em 0.5em;
+            text-align: left;
+            pointer-events: none;
+            user-select: none;
+            visibility: visible;
+        }
+        
+        .sel.active .sel__placeholder {
+            visibility: hidden;
+        }
+        
+        .sel__placeholder::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.2em 0.5em;
+            content: attr(data-placeholder);
+            visibility: hidden;
+        }
+        
+        .sel.active .sel__placeholder::before {
+            visibility: visible;
+        }
+        
+        .sel__box {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: -4px;
+            display: none;
+            list-style-type: none;
+            text-align: left;
+            font-size: 1em;
+            background-color: #FFF;
+            width: calc(100% + 8px);
+            box-sizing: border-box;
+        }
+        
+        .sel.active .sel__box {
+            display: block;
+            animation: fadeInUp 500ms;
+        }
+        
+        .sel__box__options::after {
+            content: '\f00c';
+            font-family: 'FontAwesome';
+            font-size: 0.5em;
+            margin-left: 5px;
+            display: none;
+        }
+        
+        .sel__box__options.selected::after {
+            display: inline;
+        }
+        
+        .sel__box__options:hover {
+            background-color: #ebedef;
+        }
+        /* ----- Select Box Superman ----- */
+        
+        .sel--superman {
+            /*   display: none; */
+            z-index: 2;
+        }
+        /* ===== Keyframes ===== */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        
+        .k {
+            color: black;
+            background-color: #fff;
+            border-radius: 5%;
+            padding-left: 10px;
+            font-family: inherit;
+            border-right: 2px solid red;
+        }
+        
+        .blac {
+            background-color: green;
+        }
     </style>
+    <title>Test Drive Karo</title>
 </head>
 
 <body>
@@ -268,9 +1057,9 @@
 
         <div id="navbar">
             <div class="container">
-                <a class="flo" id="logo" href="#home"><img src="{% static 'img/logo2.gif' %}" height="80px" alt="" srcset=""></a>
 
-                <div class="topnav">
+                <div class="topnav ok" id="myTopnav">
+                    <a class="flo" id="logo" href="#home"><img src="{% static 'img/logo2.gif' %}" height="80px" alt="" srcset=""></a>
 
                     <a class="b" href="ind">Home</a>
                     <a class="b" href="about">About</a>
@@ -280,7 +1069,9 @@
                     <a class="b" href="featuredcar">Featured Car</a>
                     <a class="b" href="royal">Royal Enfield</a>
                     <a class="b" href="contact">Contact</a>
-
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -290,72 +1081,55 @@
     <div class="imgs"></div>
 
     <div class="lin">
-        <form action="#" method="post">
-            <div class="set colo">
-                <div class="flo" style="width:120px; margin-left: 100px;">
-                    <select class="sty lefts">
-                        <option value="0">Car Brands </option>
-                        <option value="1">Maruti Suzuki</option>
-                        <option value="2"> Hyundai</option>
-                        <option value="3">Tata</option>
-                        <option value="4">Mahindra</option>
-                        <option value="5">Honda</option>
-                        <option value="6">Toyota</option>
-                        <option value="7">Volkswagen</option>
-                        <option value="8">MG</option>
-                        <option value="9">Skoda</option>
-                        <option value="10">Jaguar</option>
-                        <option value="11">Land Rover</option>
-                        <option value="12">Mercedes</option>
-                        <option value="13">Volvo</option>
-                        <option value="14">BMW</option>
-                        <option value="15">Audi</option>
-                        
-                    </select>
-                </div>
+        <div class="back">
+            <form action="#" method="post">
+                {% csrf_token %}
 
-                <div class="flo" style="width:120px; margin-right : 100px;">
-                    <select class="left">
-                        <option value="0">Category </option>
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
-                        <option value="4"></option>
-                        <option value="5"></option>
-                        <option value="6"></option>
-                        
-                    </select>
-                </div>
-                <div class="flo" style="width:120px; margin-right : 100px;">
-                    <select class="left">
-                        <option value="0">Color </option>
-                        <option value="1">Red</option>
-                        <option value="2">Blue</option>
-                        <option value="3">Black</option>
-                        <option value="4">White</option>
-                        <option value="5">Silver</option>
-                        
-                    </select>
-                </div>
-                <div class="flo" style="width:120px; margin-right : 100px;">
-                    <select class="left">
-                        <option value="0">Prize </option>
-                        <option value="1">Mercedes</option>
-                        <option value="2">Jaguar</option>
-                        <option value="3">Land Rover</option>
-                        <option value="4">Volvo</option>
-                        <option value="5">BMW</option>
-                        <option value="6">Audi</option>
-                        
-                    </select>
-                </div>
-                <div>
-                    <input class="le" type="button" value="submit">
-                </div>
+                <select name="select-profession" id="select-profession" class=" sel active flo">
+                    <div class="blac">
+                        <option value="k" >Top Brands</option>
+                        <option class="k" value="hacker">Maruti Suzuki</option>
+                        <option class="k" value="gamer"> Hyundai</option>
+                        <option class="k" value="developer">Tata</option>
+                        <option class="k" value="programmer">Mahindra</option>
+                        <option class="k" value="designer">Honda</option>
+                        <option class="k" value="designer">Toyota</option>
+                        <option class="k" value="designer"> Volkswagen</option>
+                        <option class="k" value="designer">MG</option>
+                        <option class="k" value="designer">Skoda</option>
+                    </div>
+                  
+                </select>
 
-            </div>
+                <select name="select-superpower" id="select-superpower" class=" sel flo">
+                  <option value="" >Luxury</option>
+                  <option class="k" value="hacker">Mercedes</option>
+                  <option class="k" value="gamer">Jaguar</option>
+                  <option class="k" value="developer">Land Rover</option>
+                  <option class="k" value="programmer">Volvo</option>
+                  <option class="k" value="programmer">BMW</option>
+                  <option class="k" value="programmer">Audi</option>
+                </select>
 
-        </form>
+                <select name="select-superpower" id="select-superpower" class="sel flo">
+                  <option value="" >Color</option>
+                 <option  class="k" value="hacker">Black</option>
+                  <option class="k" value="hacker">Red</option>
+                  <option class="k" value="hacker">Blue</option>
+                  <option class="k" value="hacker">Silver</option>
+                </select>
+                <select name="select-superpower" id="select-superpower" class="sel flo">
+                    <option value="">Price</option>
+                    <option class="k" value="hacker">0-0 Lac</option>
+                    <option class="k" value="gamer">0-0 Lac</option>
+                    <option class="k" value="developer">0-0 Lac</option>
+                    <option class="k" value="programmer">0-0 Lac</option>
+                  </select>
+
+
+                <button type="submit" class="sels"><b>Submit</b></button>
+            </form>
+        </div>
 
         rro quo perspiciatis nostrum laboriosam! lorem 500 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum quidem ex esse architecto vero autem molestiae reprehenderit obcaecati, consequuntur sapiente magnam facilis dolorum consequatur veniam
         placeat tempore nesciunt sit voluptatum illo ullam consectetur quaerat minus laboriosam. Mollitia nam obcaecati est, nobis hic necessitatibus eius libero vitae velit doloribus quia placeat recusandae laborum, quaerat optio sint quo neque a ducimus
@@ -381,52 +1155,38 @@
         repellendus modi, nesciunt et accusantium eligendi provident! Iste quia libero nemo dignissimos praesentium, consequatur recusandae rerum sed odit ex veniam aspe
 
     </div>
-    <div class="footer-basic">
+    <div class="footer-basic ">
         <footer>
-            <div class="social"><a href="#" target="__blank"><i class="fa fa-twitter"></i></a><a href="#" target="__blank"><i class="fa fa-linkedin"></i></a><a href="#" target="__blank"><i class="fa fa-google"></i></a><a href="#" target="__blank"><i class="fa fa-facebook"></i></a></div>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a class="c" href="ind">Home</a></li>
-                <li class="list-inline-item"><a class="c" href="about">About</a></li>
-                <li class="list-inline-item"><a class="c" href="contact">Contact</a></li>
-                <li class="list-inline-item"><a class="c" href="term">Terms</a></li>
-                <li class="list-inline-item"><a class="c" href="privacy">Privacy Policy</a></li>
+            <div class="social "><a href="# " target="__blank "><i class="fa fa-twitter "></i></a><a href="# " target="__blank "><i class="fa fa-linkedin "></i></a><a href="# " target="__blank "><i class="fa fa-google "></i></a><a href="# " target="__blank
+                        "><i class="fa fa-facebook "></i></a></div>
+            <ul class="list-inline ">
+                <li class="list-inline-item "><a class="c " href="ind ">Home</a></li>
+                <li class="list-inline-item "><a class="c " href="about ">About</a></li>
+                <li class="list-inline-item "><a class="c " href="contact ">Contact</a></li>
+                <li class="list-inline-item "><a class="c " href="term ">Terms</a></li>
+                <li class="list-inline-item "><a class="c " href="privacy ">Privacy Policy</a></li>
             </ul>
-            <a href="http://testdrivekaro.com">
-                <p class="copyright">Test Drive Karo © 2021</p>
+            <a href="http://testdrivekaro.com ">
+                <p class="copyright ">Test Drive Karo © 2021</p>
             </a>
         </footer>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js "></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js "></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+
         <script>
-            $(document).ready(function() {
-                // Add smooth scrolling to all links
-                $("a").on('click', function(event) {
-
-                    // Make sure this.hash has a value before overriding default behavior
-                    if (this.hash !== "") {
-                        // Prevent default anchor click behavior
-                        event.preventDefault();
-
-                        // Store hash
-                        var hash = this.hash;
-
-                        // Using jQuery's animate() method to add smooth page scroll
-                        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                        $('html, body').animate({
-                            scrollTop: $(hash).offset().top
-                        }, 800, function() {
-
-                            // Add hash (#) to URL when done scrolling (default click behavior)
-                            window.location.hash = hash;
-                        });
-                    } // End if
-                });
-            });
+            function myFunction() {
+                var x = document.getElementById("myTopnav ");
+                if (x.className === "topnav ") {
+                    x.className += " responsive ";
+                } else {
+                    x.className = "topnav ";
+                }
+            }
         </script>
 
 </body>
 
-</html>s
+</html>
