@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             text-align: center;
             font-family: 'futura-pt', sans-serif;
@@ -26,19 +31,6 @@
             z-index: 2;
             color: black;
             font-weight: bold;
-        }
-        
-        .back {
-            background-color: rgb(237, 235, 235);
-            font-family: 'futura-pt', sans-serif;
-            text-align: center;
-            height: auto;
-            width: 100%;
-            margin-bottom: 3%;
-            padding: 0px 24px;
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1366px;
         }
         
         .bg-text {
@@ -198,606 +190,6 @@
         }
         /* Add responsiveness - on screens less than 580px wide, display the navbar vertically instead of horizontally */
         
-        @media screen and (max-width: 580px) {
-            #navbar {
-                padding: 0px 10px !important;
-                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-            }
-            #navbar .c {
-                float: none;
-                display: inline-block;
-                text-align: left;
-            }
-            #navbar-right {
-                float: none;
-            }
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-            .topnav .c.icon {
-                float: right;
-                display: block;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 150px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 150px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (max-width: 600px) {
-            #navbar {
-                padding: 0px 10px !important;
-                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-            }
-            #navbar c {
-                float: none;
-                display: inline-block;
-                text-align: left;
-            }
-            #navbar-right {
-                float: none;
-            }
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
-            .topnav.responsive {
-                position: relative;
-            }
-            .topnav.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .topnav.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (max-width: 400px) {
-            #navbar {
-                padding: 0px 10px !important;
-                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-            }
-            #navbar c {
-                float: none;
-                display: inline-block;
-                text-align: left;
-            }
-            #navbar-right {
-                float: none;
-            }
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
-            .topnav.responsive {
-                position: relative;
-            }
-            .topnav.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .topnav.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #000;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (max-width: 600px) {
-            #navbar {
-                padding: 0px 10px !important;
-                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-            }
-            #navbar c {
-                float: none;
-                display: inline-block;
-                text-align: left;
-            }
-            #navbar-right {
-                float: none;
-            }
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
-            .topnav.responsive {
-                position: relative;
-            }
-            .topnav.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .topnav.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (min-width:761px) {
-            .back {
-                background-color: rgba(192, 192, 192, 0.884);
-                text-align: center;
-                height: auto;
-                width: 100%;
-            }
-            .sel {
-                color: black;
-                font-size: 2.5rem;
-                display: inline-block;
-                margin: 9px 3px;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5%;
-                border: none;
-            }
-        }
-        
-        @media screen and (max-width:760px) {
-            .back {
-                background-color: rgba(192, 192, 192, 0.884);
-                text-align: center;
-                height: auto;
-                width: 100%;
-            }
-            .sel {
-                color: black;
-                font-size: 2.5rem;
-                display: inline-block;
-                margin: 9px 3px;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5%;
-                border: none;
-            }
-            .sels {
-                color: black;
-            }
-        }
-        
-        @media screen and (max-width:480px) {
-            .back {
-                background-color: rgba(192, 192, 192, 0.884);
-                text-align: center;
-                height: auto;
-                width: 100%;
-            }
-            .sel {
-                color: black;
-                font-size: 2.5rem;
-                display: inline-block;
-                margin: 9px 3px;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5%;
-                border: none;
-            }
-            .sels {
-                color: black;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (max-width:360px) {
-            .back {
-                background-color: rgba(192, 192, 192, 0.884);
-                text-align: center;
-                height: auto;
-                width: 100%;
-            }
-            .sel {
-                color: black;
-                font-size: 2.5rem;
-                display: inline-block;
-                margin: 9px 3px;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5%;
-                border: none;
-            }
-            .sels {
-                color: black;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
         .lin {
             border-left: 2px solid white;
             border-right: 2px solid white;
@@ -884,7 +276,7 @@
             font-weight: 400;
             font-size: 16px;
             cursor: pointer;
-            color: #666;
+            color: #000;
             border-top: 1px solid #22222238;
             border-bottom: 1px solid #22222238;
             letter-spacing: .3px;
@@ -909,7 +301,7 @@
             font-weight: 400;
             font-size: 16px;
             cursor: pointer;
-            color: #666;
+            color: #000;
             border-top: 1px solid #22222238;
             border-bottom: 1px solid #22222238;
             border-left: none;
@@ -1047,6 +439,131 @@
         .blac {
             background-color: green;
         }
+        
+        .box {
+            padding: 0px 24px;
+            text-align: center;
+            font-family: 'futura-pt', sans-serif;
+            position: relative;
+            height: auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(218, 214, 214, 0.979);
+            margin-bottom: 3%;
+            flex-wrap: wrap;
+            max-width: 1366px;
+        }
+        
+        .box:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: #fff;
+            /*--FOR ONLY GIVING A BORDER--*/
+            z-index: -1;
+        }
+        
+        .box:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: #fff;
+            /*--FOR ONLY GIVING A BORDER--*/
+            z-index: -2;
+            filter: blur(40px);
+        }
+        
+        .box:before,
+        .box:after {
+            background: linear-gradient(235deg, #89ff00, #060c21, #00bcd4);
+        }
+        
+        .hi-slide {
+            position: relative;
+            width: 754px;
+            height: 100%;
+            margin: 115px auto 0;
+        }
+        
+        .hi-slide .hi-next,
+        .hi-slide .hi-prev {
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+            border-radius: 50px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #fff;
+            color: black;
+            transition: all 0.2s;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .hi-slide .hi-next:hover,
+        .hi-slide .hi-prev:hover {
+            opacity: 1;
+            background-color: #fff;
+        }
+        
+        .hi-slide .hi-prev {
+            left: 60px;
+            text-align: center;
+        }
+        
+        .hi-slide .hi-prev::before {
+            content: '<';
+        }
+        
+        .hi-slide .hi-next {
+            right: 60px;
+        }
+        
+        .hi-slide .hi-next::before {
+            content: '>';
+        }
+        
+        .hi-slide>ul {
+            list-style: none;
+            position: relative;
+            width: 100%;
+            height: 270px;
+            margin: -120px;
+            margin-bottom: -45px;
+            margin-left: 10px;
+            padding: 1px;
+        }
+        
+        .hi-slide>ul>li {
+            overflow: hidden;
+            position: absolute;
+            background-size: 40% 30%;
+            z-index: 0;
+            left: 377px;
+            top: 146px;
+            width: 0;
+            height: 0;
+            margin-left: 5px;
+            padding: 1px;
+            cursor: pointer;
+        }
+        
+        .hi-slide>ul>li>img {
+            width: 100px;
+            height: 80px;
+            background-position: center;
+        }
     </style>
     <title>Test Drive Karo</title>
 </head>
@@ -1081,7 +598,7 @@
     <div class="imgs"></div>
 
     <div class="lin">
-        <div class="back">
+        <div class="box">
             <form action="#" method="post">
                 {% csrf_token %}
 
@@ -1131,28 +648,112 @@
             </form>
         </div>
 
-        rro quo perspiciatis nostrum laboriosam! lorem 500 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum quidem ex esse architecto vero autem molestiae reprehenderit obcaecati, consequuntur sapiente magnam facilis dolorum consequatur veniam
-        placeat tempore nesciunt sit voluptatum illo ullam consectetur quaerat minus laboriosam. Mollitia nam obcaecati est, nobis hic necessitatibus eius libero vitae velit doloribus quia placeat recusandae laborum, quaerat optio sint quo neque a ducimus
-        officiis totam iusto! Tempore ea aperiam sint perspiciatis dolor accusantium cupiditate veritatis eos deserunt consectetur sapiente nostrum eius maxime ipsum ipsa voluptas corrupti repellat, quo officia est ipsam architecto quae, impedit debitis.
-        Quisquam placeat necessitatibus molestias dolorem iste ab maiores id porro exercitationem. Sint accusantium eaque cumque consectetur voluptate quis fugiat repellat animi tempora dolore maiores earum, deserunt ex aliquid quam expedita dicta laboriosam
-        praesentium a. Expedita laudantium voluptate officiis suscipit soluta doloribus nobis possimus autem minima delectus, quo assumenda corporis et animi magnam ratione voluptates laborum quae quas saepe quis iste ea perferendis. Officiis, ad! Dolorem
-        ab ipsa error, dignissimos eaque voluptatum animi corrupti repellat repellendus modi, nesciunt et accusantium eligendi provident! Iste quia libero nemo dignissimos praesentium, consequatur recusandae rerum sed odit ex veniam aspernatur nobis itaque,
-        a, nesciunt voluptas? Hic voluptatem ratione, earum ducimus, quibusdam eos temporibus veritatis nobis reiciendis excepturi fugiat repellendus culpa! Placeat sint ipsum rem ut veniam quas deleniti repellat, quo earum debitis inventore excepturi
-        hic possimus necessitatibus ad quasi saepe eaque quam illo reprehenderit soluta per? magnam vel alias molestiae mollitia esse, quisquam asperiores tempora laboriosam, enim dolor. Doloribus iste facilis in harum illo accusamus fuga quaerat molestias
-        eos adipisci esse tempora commodi amet rem, deleniti atque consectetur cum nam inventore earum, dolorem voluptates ab. Voluptates perferendis quidem sunt magni! Nemo, aspernatur fugiat odit cum debitis, facere ad molestias ab dolor minus voluptatem
-        harum reiciendis illum, vitae dicta quo doloremque natus eveniet atque animi? Animi veniam delectus dolore iure repellendus eligendi? Ut vel possimus minima reprehenderit totam officia quaerat ipsa, maxime voluptas, ea et quia perspiciatis accusamus
-        impedit, ipsum saepe! Sit eum, voluptas quibusdam obcaecati ipsum numquam reiciendis? Eveniet perferendis blanditiis placeat quia. Enim, repellendus vero? Vero labore blanditiis suscipit quos tempore dolor magnam nam excepturi velit magni ullam
-        officiis accusamus, sit ad iure facere cum! Libero ab quo tempora, numquam tempore provident unde aut adipisci. Enim dolorem qui inventore dolorum distinctio labore veritatis, debitis laudantium? Vero sed iste unde, excepturi explicabo omnis aperiam
-        officia error sint, neque eveniet odit dolor expedita magnam natus alias quo quaerat sequi veritatis sit adipisci repellat iure eius harum. Amet sint distinctio corporis voluptatibus optio architecto enim similique, et voluptas suscipit recusandae.
-        Ut sit laboriosam pariatur modi similique doloribus animi facere. Vero ipsum cumque consequatur sequi ducimus, excepturi qui quidem. Impedit nulla, quod voluptas accusantium dolores natus. Modi quas reiciendis adipisci facere molestias quisquam
-        quibusdam laboriosam quod, eos, nesciunt qui minus perferendis quos totam velit eligendi repellat sequi molestiae, odit atque eum! Optio exercitationem qui error ipsum reiciendis veritatis dolores quas perferendis. Iure explicabo modi neque, Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus eveniet odio fuga? Totam unde illum magnam voluptates, nulla libero deleniti ut, odit temporibus mollitia porro quo perspiciatis nostrum laboriosam! lorem 500 Lorem ipsum, dolor sit
-        amet consectetur adipisicing elit. Earum quidem ex esse architecto vero autem molestiae reprehenderit obcaecati, consequuntur sapiente magnam facilis dolorum consequatur veniam placeat tempore nesciunt sit voluptatum illo ullam consectetur quaerat
-        minus laboriosam. Mollitia nam obcaecati est, nobis hic necessitatibus eius libero vitae velit doloribus quia placeat recusandae laborum, quaerat optio sint quo neque a ducimus officiis totam iusto! Tempore ea aperiam sint perspiciatis dolor accusantium
-        cupiditate veritatis eos deserunt consectetur sapiente nostrum eius maxime ipsum ipsa voluptas corrupti repellat, quo officia est ipsam architecto quae, impedit debitis. Quisquam placeat necessitatibus molestias dolorem iste ab maiores id porro
-        exercitationem. Sint accusantium eaque cumque consectetur voluptate quis fugiat repellat animi tempora dolore maiores earum, deserunt ex aliquid quam expedita dicta laboriosam praesentium a. Expedita laudantium voluptate officiis suscipit soluta
-        doloribus nobis possimus autem minima delectus, quo assumenda corporis et animi magnam ratione voluptates laborum quae quas saepe quis iste ea perferendis. Officiis, ad! Dolorem ab ipsa error, dignissimos eaque voluptatum animi corrupti repellat
-        repellendus modi, nesciunt et accusantium eligendi provident! Iste quia libero nemo dignissimos praesentium, consequatur recusandae rerum sed odit ex veniam aspe
+        <div class="slide hi-slide">
+
+            <ul>
+                <li>
+                    <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
+                </li>
+
+        </div>
+        <div class="slide hi-slide">
+
+            <ul>
+                <li>
+                    <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
+                </li>
+
+        </div>
+        <div class="slide hi-slide">
+
+            <ul>
+                <li>
+                    <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
+                </li>
+
+        </div>
+        <div class="slide hi-slide">
+
+            <ul>
+                <li>
+                    <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
+                </li>
+                <li>
+                    <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
+                </li>
+
+        </div>
+
+
 
     </div>
     <div class="footer-basic ">
@@ -1170,7 +771,11 @@
                 <p class="copyright ">Test Drive Karo © 2021</p>
             </a>
         </footer>
-
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/jquery.hislide.js' %}"></script>
+        <script>
+            $('.slide').hiSlide();
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js "></script>
