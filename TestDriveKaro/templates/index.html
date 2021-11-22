@@ -12,62 +12,68 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap');
         * {
             margin: 0;
             padding: 0;
         }
         
         body {
-            text-align: center;
             font-family: 'futura-pt', sans-serif;
         }
         
-        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap');
-        .container {
-            text-align: right;
+        #navbar {
             position: absolute;
+            top: 0px;
+            display: flex;
+            justify-content: center;
             width: 100%;
-            height: 50px;
-            z-index: 2;
-            color: black;
-            font-weight: bold;
+            border: 2px solid blueviolet;
         }
         
-        .bg-text {
+        #navbar::before {
+            content: "";
+            background-color: rgba(0, 0, 0, 0.788);
             position: absolute;
+            height: 250px;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.4;
         }
-        /* The navbar */
         
-        .topnav {
-            overflow: hidden;
+        #navbar img {
+            position: relative;
+            left: -90px;
+            padding: 0.5rem;
+            border: 2px solid green;
         }
-        /* Navbar links */
         
-        .topnav .b {
-            float: left;
-            color: white;
-            text-align: end;
-            padding: 14px 16px;
+        #navbar .center-nav {
+            position: relative;
+            justify-content: center;
+            border: 2px solid blue;
+        }
+        
+        #navbar .center-nav a {
             text-decoration: none;
-            font-size: 16px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: white;
+            font-size: 2rem;
+            border: 2px solid rgb(255, 0, 242);
         }
         
-        .topnav .b:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        
-        .topnav .icon {
-            display: none;
-        }
-        
-        .flo {
-            float: left;
-            font-size: 18px;
+        #navbar .nav-button {
+            position: absolute;
+            right: 2px;
+            border: 2px solid red;
+            height: fit-content;
         }
         
         .footer-basic {
+            position: absolute;
             padding: 40px 0;
+            bottom: 0px;
+            width: 100%;
             color: #fff;
             background-color: #000;
             opacity: 70%;
@@ -129,282 +135,6 @@
             margin-bottom: 0;
         }
         /* Create a sticky/fixed navbar */
-        
-        .imgs {
-            /* The image used */
-            /* The image used */
-            background-image: url("{% static 'img/header5.jpg' %}");
-            /* Set a specific height */
-            min-height: 300px;
-            /* Create the parallax scrolling effect */
-            background-attachment: fixed;
-            background-position: top;
-            background-repeat: no-repeat;
-            background-size: 100% 75%;
-            width: 100%;
-            height: auto;
-        }
-        
-        #navbar {
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            /* Needed to position the navbar */
-            transition: 00.4s;
-        }
-        
-        .c {
-            float: left;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            text-decoration: none;
-            font-size: 18px;
-            line-height: 25px;
-            border-radius: 4px;
-        }
-        /* Style the logo */
-        
-        #navbar #logo {
-            font-size: 35px;
-            font-weight: bold;
-            transition: 0.4s;
-        }
-        /* Links on mouse-over */
-        
-        .c:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        /* Style the active/current link */
-        
-        .c.active {
-            background-color: dodgerblue;
-            color: white;
-        }
-        /* Display some links to the right */
-        
-        #navbar-right {
-            float: right;
-        }
-        /* Add responsiveness - on screens less than 580px wide, display the navbar vertically instead of horizontally */
-        
-        .lin {
-            border-left: 2px solid white;
-            border-right: 2px solid white;
-            opacity: 90%;
-        }
-        
-        .set {
-            width: 100%;
-            height: 50px;
-        }
-        
-        .sty {
-            width: 100px;
-            border-radius: 5px;
-            height: auto;
-            margin-top: 10%;
-        }
-        
-        .left:hover {
-            color: rgb(255, 0, 0);
-        }
-        
-        .colo {
-            background-color: silver;
-            height: auto;
-            align-items: center;
-            min-height: 50px;
-            width: 98%;
-            margin: 1%;
-        }
-        
-        .sub {
-            width: 150px;
-            border-radius: 5px;
-            height: auto;
-            margin-left: 100px;
-            margin-top: 1%;
-        }
-        
-        .sub:hover {
-            background-color: seagreen;
-            color: blue
-        }
-        
-        .lefts {
-            margin-left: -70%;
-            width: 150px;
-            height: 30px;
-        }
-        
-        .left {
-            margin-right: 10%;
-            width: 150px;
-            height: 30px;
-            border-radius: 5px;
-            margin-top: 10%;
-        }
-        
-        .le {
-            width: 75px;
-            height: 30px;
-            border-radius: 5px;
-            margin-top: 1%;
-        }
-        
-        .le:hover {
-            background-color: white;
-            color: yellowgreen
-        }
-        /* ===== Resets and Housekeeping ===== */
-        /* ===== Actual Styles ===== */
-        /* ===== Horizontal Rule ===== */
-        /* ===== Select Box ===== */
-        
-        .sel {
-            display: inline-block;
-            text-align: left;
-            padding: 9px 20px 9px 5px;
-            margin: 9px 4px;
-            width: 180px;
-            line-height: 1.2;
-            position: relative;
-            font-family: 'futura-pt', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-            cursor: pointer;
-            color: #000;
-            border-top: 1px solid #22222238;
-            border-bottom: 1px solid #22222238;
-            letter-spacing: .3px;
-            vertical-align: middle;
-            background: transparent;
-        }
-        
-        .im {
-            text-align: left;
-            margin-right: 40px;
-        }
-        
-        .sels {
-            display: inline-block;
-            text-align: center;
-            padding: 9px 20px 9px 6px;
-            margin: 9px 4px;
-            width: 180px;
-            line-height: 1.2;
-            position: relative;
-            font-family: 'futura-pt', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
-            cursor: pointer;
-            color: #000;
-            border-top: 1px solid #22222238;
-            border-bottom: 1px solid #22222238;
-            border-left: none;
-            border-right: none;
-            letter-spacing: .3px;
-            vertical-align: middle;
-            background: transparent;
-            background-image: url("/static/img/sr1.png");
-            background-repeat: no-repeat;
-            background-position-x: left;
-            background-position-y: center;
-        }
-        
-        .sels:hover {
-            color: #1100fc;
-            background-image: url("{% static 'img/sr3.gif' %}");
-            background-size: 27px 27px;
-            background-repeat: no-repeat;
-            transition: 1.0s;
-        }
-        
-        .sel.active::before {
-            transform: rotateX(-180deg);
-        }
-        
-        .sel.active::after {
-            transform: rotateX(360deg);
-        }
-        
-        .sel:hover {
-            color: #3f6bfc;
-        }
-        
-        .sel__placeholder {
-            display: block;
-            font-family: 'Quicksand';
-            font-size: 2.3em;
-            color: #838e95;
-            padding: 0.2em 0.5em;
-            text-align: left;
-            pointer-events: none;
-            user-select: none;
-            visibility: visible;
-        }
-        
-        .sel.active .sel__placeholder {
-            visibility: hidden;
-        }
-        
-        .sel__placeholder::before {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 0.2em 0.5em;
-            content: attr(data-placeholder);
-            visibility: hidden;
-        }
-        
-        .sel.active .sel__placeholder::before {
-            visibility: visible;
-        }
-        
-        .sel__box {
-            position: absolute;
-            top: calc(100% + 4px);
-            left: -4px;
-            display: none;
-            list-style-type: none;
-            text-align: left;
-            font-size: 1em;
-            background-color: #FFF;
-            width: calc(100% + 8px);
-            box-sizing: border-box;
-        }
-        
-        .sel.active .sel__box {
-            display: block;
-            animation: fadeInUp 500ms;
-        }
-        
-        .sel__box__options::after {
-            content: '\f00c';
-            font-family: 'FontAwesome';
-            font-size: 0.5em;
-            margin-left: 5px;
-            display: none;
-        }
-        
-        .sel__box__options.selected::after {
-            display: inline;
-        }
-        
-        .sel__box__options:hover {
-            background-color: #ebedef;
-        }
-        /* ----- Select Box Superman ----- */
-        
-        .sel--superman {
-            /*   display: none; */
-            z-index: 2;
-        }
         /* ===== Keyframes ===== */
         
         @keyframes fadeInUp {
@@ -427,33 +157,19 @@
             }
         }
         
-        .k {
-            color: black;
-            background-color: #fff;
-            border-radius: 5%;
-            padding-left: 10px;
-            font-family: inherit;
-            border-right: 2px solid red;
-        }
-        
-        .blac {
-            background-color: green;
-        }
-        
         .box {
             padding: 0px 24px;
-            text-align: center;
             font-family: 'futura-pt', sans-serif;
-            position: relative;
+            position: absolute;
+            top: 250px;
             height: auto;
-            width: 100%;
+            width: 99.7%;
             display: flex;
             justify-content: center;
-            align-items: center;
             background-color: rgba(218, 214, 214, 0.979);
             margin-bottom: 3%;
             flex-wrap: wrap;
-            max-width: 1366px;
+            max-width: 100%;
         }
         
         .box:before {
@@ -485,118 +201,161 @@
         .box:after {
             background: linear-gradient(235deg, #89ff00, #060c21, #00bcd4);
         }
+        /* bigboss */
         
-        .hi-slide {
-            position: relative;
-            width: 754px;
-            height: 100%;
-            margin: 115px auto 0;
-        }
-        
-        .hi-slide .hi-next,
-        .hi-slide .hi-prev {
+        .bigboss {
+            display: inline-block;
             position: absolute;
-            top: 50%;
-            width: 40px;
-            height: 40px;
-            margin-top: -20px;
-            border-radius: 50px;
-            line-height: 40px;
-            text-align: center;
-            cursor: pointer;
-            background-color: #fff;
-            color: black;
-            transition: all 0.2s;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        .hi-slide .hi-next:hover,
-        .hi-slide .hi-prev:hover {
-            opacity: 1;
-            background-color: #fff;
-        }
-        
-        .hi-slide .hi-prev {
-            left: 60px;
-            text-align: center;
-        }
-        
-        .hi-slide .hi-prev::before {
-            content: '<';
-        }
-        
-        .hi-slide .hi-next {
-            right: 60px;
-        }
-        
-        .hi-slide .hi-next::before {
-            content: '>';
-        }
-        
-        .hi-slide>ul {
-            list-style: none;
-            position: relative;
+            top: 280px;
             width: 100%;
-            height: 270px;
-            margin: -120px;
-            margin-bottom: -45px;
-            margin-left: 10px;
-            padding: 1px;
+            justify-content: center;
+            padding: 5rem;
+            border: 2px solid violet;
         }
+        /* 1st slide */
         
-        .hi-slide>ul>li {
-            overflow: hidden;
+        .bigboss .slide {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        /* 2nd slide */
+        
+        .bigboss .slides {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        /* 3rd slide */
+        
+        .bigboss .slidess {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        /* 4th silde */
+        
+        .bigboss .slidesss {
             position: absolute;
-            background-size: 40% 30%;
-            z-index: 0;
-            left: 377px;
-            top: 146px;
-            width: 0;
-            height: 0;
-            margin-left: 5px;
-            padding: 1px;
-            cursor: pointer;
+            width: 100%;
+            justify-content: center;
+        }
+        /* 1st silde editing */
+        
+        .bigboss .slide ul {
+            display: flex;
+            position: absolute;
+            border: 2px solid black;
         }
         
-        .hi-slide>ul>li>img {
-            width: 100px;
-            height: 80px;
-            background-position: center;
+        .bigboss .slide ul li {
+            padding: 1rem;
+            list-style: none;
+        }
+        
+        .bigboss .slide ul li img {
+            width: 110px;
+            height: 110px;
+            border: 2px solid green;
+        }
+        
+        .bigboss .slide ul li img span {
+            border: 2px solid black;
+        }
+        /* 2nd slide editing */
+        
+        .bigboss .slides ul {
+            display: flex;
+            position: absolute;
+            border: 2px solid black;
+        }
+        
+        .bigboss .slides ul li {
+            padding: 1rem;
+            list-style: none;
+        }
+        
+        .bigboss .slides ul li img {
+            width: 110px;
+            height: 110px;
+            border: 2px solid green;
+        }
+        
+        .bigboss .slides ul li img span {
+            border: 2px solid black;
+        }
+        /* 3rd slide editing */
+        
+        .bigboss .slidess ul {
+            display: flex;
+            position: absolute;
+            border: 2px solid black;
+        }
+        
+        .bigboss .slidess ul li {
+            padding: 1rem;
+            list-style: none;
+        }
+        
+        .bigboss .slidess ul li img {
+            width: 110px;
+            height: 110px;
+            border: 2px solid green;
+        }
+        
+        .bigboss .slidess ul li img span {
+            border: 2px solid black;
+        }
+        /* 4th slide editing */
+        
+        .bigboss .slidesss ul {
+            display: flex;
+            position: absolute;
+            border: 2px solid black;
+        }
+        
+        .bigboss .slidesss ul li {
+            padding: 1rem;
+            list-style: none;
+        }
+        
+        .bigboss .slidesss ul li img {
+            width: 110px;
+            height: 110px;
+            border: 2px solid green;
+        }
+        
+        .bigboss .slidesss ul li img span {
+            border: 2px solid black;
         }
     </style>
     <title>Test Drive Karo</title>
 </head>
 
 <body>
-
     <nav>
-
         <div id="navbar">
-            <div class="container">
-
-                <div class="topnav ok" id="myTopnav">
-                    <a class="flo" id="logo" href="#home"><img src="{% static 'img/logo2.gif' %}" height="80px" alt="" srcset=""></a>
-
-                    <a class="b" href="ind">Home</a>
-                    <a class="b" href="about">About</a>
-                    <a class="b" href="topbrand">Top Brands</a>
-                    <a class="b" href="luxury">Luxury</a>
-                    <a class="b" href="topchoice">Top Choice</a>
-                    <a class="b" href="featuredcar">Featured Car</a>
-                    <a class="b" href="royal">Royal Enfield</a>
-                    <a class="b" href="contact">Contact</a>
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                </div>
+            <a id="logo" href="#">
+                <img src="{% static 'img/logo2.gif' %}" height="80px" alt="" srcset="">
+            </a>
+            <div class="center-nav">
+                <a href="ind">Home</a>
+                <a href="about">About</a>
+                <a href="topbrand">Top Brands</a>
+                <a href="luxury">Luxury</a>
+                <a href="topchoice">Top Choice</a>
+                <a href="featuredcar">Featured Car</a>
+                <a href="royal">Royal Enfield</a>
+                <a href="contact">Contact</a>
+            </div>
+            <div class="nav-button">
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
         </div>
 
     </nav>
-
-    <div class="imgs"></div>
-
     <div class="lin">
         <div class="box">
             <form action="#" method="post">
@@ -641,118 +400,119 @@
                     <option class="k" value="gamer">0-0 Lac</option>
                     <option class="k" value="developer">0-0 Lac</option>
                     <option class="k" value="programmer">0-0 Lac</option>
-                  </select>
+                </select>
 
 
                 <button type="submit" class="sels"><b>Submit</b></button>
             </form>
         </div>
 
-        <div class="slide hi-slide">
+        <div class="bigboss">
+            <div class="slide">
 
-            <ul>
-                <li>
-                    <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
-                </li>
+                <ul>
+                    <li>
+                        <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
+                    </li>
 
+            </div>
+            <div class="slides">
+
+                <ul>
+                    <li>
+                        <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
+                    </li>
+
+            </div>
+            <div class="slidess">
+
+                <ul>
+                    <li>
+                        <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
+                    </li>
+
+            </div>
+            <div class="slidesss">
+
+                <ul>
+                    <li>
+                        <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
+                    </li>
+                    <li>
+                        <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
+                    </li>
+
+            </div>
         </div>
-        <div class="slide hi-slide">
-
-            <ul>
-                <li>
-                    <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
-                </li>
-
-        </div>
-        <div class="slide hi-slide">
-
-            <ul>
-                <li>
-                    <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
-                </li>
-
-        </div>
-        <div class="slide hi-slide">
-
-            <ul>
-                <li>
-                    <img src="{% static 'img/carlogo/1.png' %}" alt="" srcset=""><span class="for">Audi</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/2.png' %}" alt="" srcset=""><span class="for">BMW</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/3.png' %}" alt="" srcset=""><span class="for">Chevrolet</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/4.png' %}" alt="" srcset=""><span class="for">Fiat</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/5.png' %}" alt="" srcset=""><span class="for">Ford</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/6.png' %}" alt="" srcset=""><span class="for">Honda</span>
-                </li>
-                <li>
-                    <img src="{% static 'img/carlogo/7.png' %}" alt="" srcset=""><span class="for">Jaguar</span>
-                </li>
-
-        </div>
-
 
 
     </div>
@@ -773,9 +533,7 @@
         </footer>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script type="text/javascript" src="{% static 'js/jquery.hislide.js' %}"></script>
-        <script>
-            $('.slide').hiSlide();
-        </script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js "></script>
