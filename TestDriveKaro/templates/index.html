@@ -10,15 +10,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="{% static 'img/logo2.gif' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <!------ Include the above in your HEAD tag ---------->
+    <meta name="keywords" content="Bootstrap 4 Free Carousel, Free Slider, Bootstrap 4 Slider for freee, Free Bootstrap 4 Slider, Free HTML Slider">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 4 Default CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-- Additional CSS -->
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+    <script src="{% static 'js/slick.js' %}"></script>
 
     <style>
         body {
-            text-align: center;
             font-family: 'futura-pt', sans-serif;
         }
         
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap');
-        .container {
+        .containers {
             text-align: right;
             position: absolute;
             width: 100%;
@@ -75,6 +96,9 @@
         }
         
         .footer-basic {
+            position: relative;
+            bottom: 0px;
+            width: 100%;
             padding: 40px 0;
             color: #fff;
             background-color: #000;
@@ -121,7 +145,7 @@
             border: 1px solid #ccc;
             margin: 0 8px;
             color: inherit;
-            opacity: 0.75;
+            opacity: 1;
         }
         
         .footer-basic .social>a:hover {
@@ -247,520 +271,6 @@
                 padding: 9px 20px 9px 6px;
                 margin: 9px 4px;
                 width: 150px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (max-width: 600px) {
-            #navbar {
-                padding: 0px 10px !important;
-                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-            }
-            #navbar c {
-                float: none;
-                display: inline-block;
-                text-align: left;
-            }
-            #navbar-right {
-                float: none;
-            }
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
-            .topnav.responsive {
-                position: relative;
-            }
-            .topnav.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .topnav.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (max-width: 400px) {
-            #navbar {
-                padding: 0px 10px !important;
-                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-            }
-            #navbar c {
-                float: none;
-                display: inline-block;
-                text-align: left;
-            }
-            #navbar-right {
-                float: none;
-            }
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
-            .topnav.responsive {
-                position: relative;
-            }
-            .topnav.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .topnav.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #000;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (max-width: 600px) {
-            #navbar {
-                padding: 0px 10px !important;
-                /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-            }
-            #navbar c {
-                float: none;
-                display: inline-block;
-                text-align: left;
-            }
-            #navbar-right {
-                float: none;
-            }
-            .topnav a:not(:first-child) {
-                display: none;
-            }
-            .topnav a.icon {
-                float: right;
-                display: block;
-            }
-            .topnav.responsive {
-                position: relative;
-            }
-            .topnav.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-            .topnav.responsive a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (min-width:761px) {
-            .back {
-                background-color: rgba(192, 192, 192, 0.884);
-                text-align: center;
-                height: auto;
-                width: 100%;
-            }
-            .sel {
-                color: black;
-                font-size: 2.5rem;
-                display: inline-block;
-                margin: 9px 3px;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5%;
-                border: none;
-            }
-        }
-        
-        @media screen and (max-width:760px) {
-            .back {
-                background-color: rgba(192, 192, 192, 0.884);
-                text-align: center;
-                height: auto;
-                width: 100%;
-            }
-            .sel {
-                color: black;
-                font-size: 2.5rem;
-                display: inline-block;
-                margin: 9px 3px;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5%;
-                border: none;
-            }
-            .sels {
-                color: black;
-            }
-        }
-        
-        @media screen and (max-width:480px) {
-            .back {
-                background-color: rgba(192, 192, 192, 0.884);
-                text-align: center;
-                height: auto;
-                width: 100%;
-            }
-            .sel {
-                color: black;
-                font-size: 2.5rem;
-                display: inline-block;
-                margin: 9px 3px;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5%;
-                border: none;
-            }
-            .sels {
-                color: black;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                border-left: none;
-                border-right: none;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-                background-image: url("/static/img/sr1.png");
-                background-repeat: no-repeat;
-                background-position-x: left;
-                background-position-y: center;
-            }
-            .sels:hover {
-                color: #1100fc;
-                background-image: url("{% static 'img/sr3.gif' %}");
-                background-size: 27px 27px;
-                background-repeat: no-repeat;
-                transition: 1.0s;
-            }
-            .sel.active::before {
-                transform: rotateX(-180deg);
-            }
-            .sel.active::after {
-                transform: rotateX(360deg);
-            }
-            .sel:hover {
-                color: #3f6bfc;
-            }
-        }
-        
-        @media screen and (max-width:360px) {
-            .back {
-                background-color: rgba(192, 192, 192, 0.884);
-                text-align: center;
-                height: auto;
-                width: 100%;
-            }
-            .sel {
-                color: black;
-                font-size: 2.5rem;
-                display: inline-block;
-                margin: 9px 3px;
-                width: 200px;
-                position: relative;
-                cursor: pointer;
-                border-radius: 5%;
-                border: none;
-            }
-            .sels {
-                color: black;
-            }
-            .sel {
-                display: inline-block;
-                text-align: left;
-                padding: 9px 20px 9px 5px;
-                margin: 9px 4px;
-                width: 200px;
-                line-height: 1.2;
-                position: relative;
-                font-family: 'futura-pt', sans-serif;
-                font-weight: 400;
-                font-size: 16px;
-                cursor: pointer;
-                color: #666;
-                border-top: 1px solid #22222238;
-                border-bottom: 1px solid #22222238;
-                letter-spacing: .3px;
-                vertical-align: middle;
-                background: transparent;
-            }
-            .im {
-                text-align: left;
-                margin-right: 40px;
-            }
-            .sels {
-                display: inline-block;
-                text-align: center;
-                padding: 9px 20px 9px 6px;
-                margin: 9px 4px;
-                width: 200px;
                 line-height: 1.2;
                 position: relative;
                 font-family: 'futura-pt', sans-serif;
@@ -1047,16 +557,286 @@
         .blac {
             background-color: green;
         }
+        
+        .slick-slide {
+            margin: 0px 20px;
+        }
+        
+        .slick-slide img {
+            width: 100%;
+        }
+        
+        .slick-slider {
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .slick-list {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .slick-list:focus {
+            outline: none;
+        }
+        
+        .slick-list.dragging {
+            cursor: pointer;
+            cursor: hand;
+        }
+        
+        .slick-slider .slick-track,
+        .slick-slider .slick-list {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+        
+        .slick-track {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: block;
+        }
+        
+        .slick-track:before,
+        .slick-track:after {
+            display: table;
+            content: '';
+        }
+        
+        .slick-track:after {
+            clear: both;
+        }
+        
+        .slick-loading .slick-track {
+            visibility: hidden;
+        }
+        
+        .slick-slide {
+            display: none;
+            float: left;
+            height: 100%;
+            min-height: 1px;
+        }
+        
+        [dir='rtl'] .slick-slide {
+            float: right;
+        }
+        
+        .slick-slide img {
+            display: block;
+        }
+        
+        .slick-slide.slick-loading img {
+            display: none;
+        }
+        
+        .slick-slide.dragging img {
+            pointer-events: none;
+        }
+        
+        .slick-initialized .slick-slide {
+            display: block;
+        }
+        
+        .slick-loading .slick-slide {
+            visibility: hidden;
+        }
+        
+        .slick-vertical .slick-slide {
+            display: block;
+            height: auto;
+            border: 1px solid transparent;
+        }
+        
+        .slick-arrow.slick-hidden {
+            display: none;
+        }
+        
+        .bs {
+            text-align: center;
+            font-weight: bold;
+            font-size: 2.5em;
+        }
+        /*Logo carousel*/
+        
+        #clients {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #clients .clients-wrap {
+            display: block;
+            width: 95%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        #clients .clients-wrap ul {
+            display: block;
+            list-style: none;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #clients .clients-wrap ul li {
+            display: block;
+            float: left;
+            position: relative;
+            width: 220px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+        
+        #clients .clients-wrap ul li img {
+            vertical-align: middle;
+            max-width: 100%;
+            max-height: 100%;
+            -webkit-transition: 0 linear left;
+            -moz-transition: 0 linear left;
+            transition: 0 linear left;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+            filter: alpha(opacity=65);
+            opacity: 0.7;
+        }
+        
+        #clients .clients-wrap ul li img:hover {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=10);
+            opacity: 1.0;
+        }
+    </style>
+    <style type="text/css">
+        .sliders {
+            width: 50%;
+            margin: 100px auto;
+        }
+        
+        .slick-slide {
+            margin: 0px 20px;
+        }
+        
+        .slick-slide img {
+            width: 100%;
+        }
+        
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+        
+        .slick-slide {
+            transition: all ease-in-out .3s;
+            opacity: .2;
+        }
+        
+        .slick-active {
+            opacity: 1;
+        }
+        
+        .slick-current {
+            opacity: 1;
+        }
+    </style>
+    <!-- dropdown browse all -->
+
+    <style>
+        /* Dropdown Button */
+        
+        .dropbtn {
+            position: relative;
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        /* Dropdown button on hover & focus */
+        
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #2980B9;
+        }
+        /* The container <div> - needed to position the dropdown content */
+        
+        .dropdown {
+            width: 100%;
+            position: relative;
+            align-items: center;
+        }
+        /* Dropdown Content (Hidden by Default) */
+        
+        .dropdown-content {
+            display: none;
+            position: sticky;
+            width: 1000px;
+            background: transparent;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        /* Links inside the dropdown */
+        
+        .dropdown-content .conts {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 20px;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            border-radius: 12px;
+            display: block;
+        }
+        
+        .dropdown-content .conts a {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 20px;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            border-radius: 12px;
+            display: inline-block;
+        }
+        /* Change color of dropdown links on hover */
+        
+        .dropdown-content a:hover {
+            background-color: #ddd
+        }
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        
+        .show {
+            display: block;
+        }
     </style>
     <title>Test Drive Karo</title>
 </head>
 
 <body>
-
     <nav>
 
         <div id="navbar">
-            <div class="container">
+            <div class="containers">
 
                 <div class="topnav ok" id="myTopnav">
                     <a class="flo" id="logo" href="#home"><img src="{% static 'img/logo2.gif' %}" height="80px" alt="" srcset=""></a>
@@ -1131,30 +911,162 @@
             </form>
         </div>
 
-        rro quo perspiciatis nostrum laboriosam! lorem 500 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum quidem ex esse architecto vero autem molestiae reprehenderit obcaecati, consequuntur sapiente magnam facilis dolorum consequatur veniam
-        placeat tempore nesciunt sit voluptatum illo ullam consectetur quaerat minus laboriosam. Mollitia nam obcaecati est, nobis hic necessitatibus eius libero vitae velit doloribus quia placeat recusandae laborum, quaerat optio sint quo neque a ducimus
-        officiis totam iusto! Tempore ea aperiam sint perspiciatis dolor accusantium cupiditate veritatis eos deserunt consectetur sapiente nostrum eius maxime ipsum ipsa voluptas corrupti repellat, quo officia est ipsam architecto quae, impedit debitis.
-        Quisquam placeat necessitatibus molestias dolorem iste ab maiores id porro exercitationem. Sint accusantium eaque cumque consectetur voluptate quis fugiat repellat animi tempora dolore maiores earum, deserunt ex aliquid quam expedita dicta laboriosam
-        praesentium a. Expedita laudantium voluptate officiis suscipit soluta doloribus nobis possimus autem minima delectus, quo assumenda corporis et animi magnam ratione voluptates laborum quae quas saepe quis iste ea perferendis. Officiis, ad! Dolorem
-        ab ipsa error, dignissimos eaque voluptatum animi corrupti repellat repellendus modi, nesciunt et accusantium eligendi provident! Iste quia libero nemo dignissimos praesentium, consequatur recusandae rerum sed odit ex veniam aspernatur nobis itaque,
-        a, nesciunt voluptas? Hic voluptatem ratione, earum ducimus, quibusdam eos temporibus veritatis nobis reiciendis excepturi fugiat repellendus culpa! Placeat sint ipsum rem ut veniam quas deleniti repellat, quo earum debitis inventore excepturi
-        hic possimus necessitatibus ad quasi saepe eaque quam illo reprehenderit soluta per? magnam vel alias molestiae mollitia esse, quisquam asperiores tempora laboriosam, enim dolor. Doloribus iste facilis in harum illo accusamus fuga quaerat molestias
-        eos adipisci esse tempora commodi amet rem, deleniti atque consectetur cum nam inventore earum, dolorem voluptates ab. Voluptates perferendis quidem sunt magni! Nemo, aspernatur fugiat odit cum debitis, facere ad molestias ab dolor minus voluptatem
-        harum reiciendis illum, vitae dicta quo doloremque natus eveniet atque animi? Animi veniam delectus dolore iure repellendus eligendi? Ut vel possimus minima reprehenderit totam officia quaerat ipsa, maxime voluptas, ea et quia perspiciatis accusamus
-        impedit, ipsum saepe! Sit eum, voluptas quibusdam obcaecati ipsum numquam reiciendis? Eveniet perferendis blanditiis placeat quia. Enim, repellendus vero? Vero labore blanditiis suscipit quos tempore dolor magnam nam excepturi velit magni ullam
-        officiis accusamus, sit ad iure facere cum! Libero ab quo tempora, numquam tempore provident unde aut adipisci. Enim dolorem qui inventore dolorum distinctio labore veritatis, debitis laudantium? Vero sed iste unde, excepturi explicabo omnis aperiam
-        officia error sint, neque eveniet odit dolor expedita magnam natus alias quo quaerat sequi veritatis sit adipisci repellat iure eius harum. Amet sint distinctio corporis voluptatibus optio architecto enim similique, et voluptas suscipit recusandae.
-        Ut sit laboriosam pariatur modi similique doloribus animi facere. Vero ipsum cumque consequatur sequi ducimus, excepturi qui quidem. Impedit nulla, quod voluptas accusantium dolores natus. Modi quas reiciendis adipisci facere molestias quisquam
-        quibusdam laboriosam quod, eos, nesciunt qui minus perferendis quos totam velit eligendi repellat sequi molestiae, odit atque eum! Optio exercitationem qui error ipsum reiciendis veritatis dolores quas perferendis. Iure explicabo modi neque, Lorem,
-        ipsum dolor sit amet consectetur adipisicing elit. Ab ducimus eveniet odio fuga? Totam unde illum magnam voluptates, nulla libero deleniti ut, odit temporibus mollitia porro quo perspiciatis nostrum laboriosam! lorem 500 Lorem ipsum, dolor sit
-        amet consectetur adipisicing elit. Earum quidem ex esse architecto vero autem molestiae reprehenderit obcaecati, consequuntur sapiente magnam facilis dolorum consequatur veniam placeat tempore nesciunt sit voluptatum illo ullam consectetur quaerat
-        minus laboriosam. Mollitia nam obcaecati est, nobis hic necessitatibus eius libero vitae velit doloribus quia placeat recusandae laborum, quaerat optio sint quo neque a ducimus officiis totam iusto! Tempore ea aperiam sint perspiciatis dolor accusantium
-        cupiditate veritatis eos deserunt consectetur sapiente nostrum eius maxime ipsum ipsa voluptas corrupti repellat, quo officia est ipsam architecto quae, impedit debitis. Quisquam placeat necessitatibus molestias dolorem iste ab maiores id porro
-        exercitationem. Sint accusantium eaque cumque consectetur voluptate quis fugiat repellat animi tempora dolore maiores earum, deserunt ex aliquid quam expedita dicta laboriosam praesentium a. Expedita laudantium voluptate officiis suscipit soluta
-        doloribus nobis possimus autem minima delectus, quo assumenda corporis et animi magnam ratione voluptates laborum quae quas saepe quis iste ea perferendis. Officiis, ad! Dolorem ab ipsa error, dignissimos eaque voluptatum animi corrupti repellat
-        repellendus modi, nesciunt et accusantium eligendi provident! Iste quia libero nemo dignissimos praesentium, consequatur recusandae rerum sed odit ex veniam aspe
+        <div class="container">
+            <h2 class="bs">Our Partners/ Our Clients</h2>
+            <section class="customer-logos slider">
+                <div id="slide"><img src="{% static 'img/brand/1.png' %}"></div>
+                <div id="slide"><img src="{% static 'img/brand/2.png' %}"></div>
+                <div id="slide"><img src="{% static 'img/brand/3.png' %}"></div>
+                <div id="slide"><img src="{% static 'img/brand/4.png' %}"></div>
+                <div id="slide"><img src="{% static 'img/brand/5.png' %}"></div>
+                <div id="slide"><img src="{% static 'img/brand/6.png' %}"></div>
+                <div id="slide"><img src="{% static 'img/brand/7.png' %}"></div>
+                <div id="slide"><img src="{% static 'img/brand/8.png' %}"></div>
+                <div id="slide"><img src="{% static 'img/brand/9.png' %}"></div>
+            </section>
+
+            <h2 class="bs"><a href="http://testdrivekaro.com" target="_blank">http://www.testdrivekaro.com</a></h2>
+        </div>
 
     </div>
+    <h2 style="text-align: center;">--this is second slider-- </h2>
+
+    <div id="clients">
+        <div class="clients-wrap">
+            <ul id="clients-list" class="clearfix">
+                <li class="slide">
+                    <img src="{% static 'img/brand/1.png' %}" alt="Black Ace">
+                </li>
+                <li class="slide">
+                    <img src="{% static 'img/brand/2.png' %}" alt="First State Bank">
+                </li>
+
+                <li class="slide">
+                    <img src="{% static 'img/brand/3.png' %}" alt="First State Bank">
+                </li>
+                <li class="slide">
+                    <img src="{% static 'img/brand/4.png' %}" alt="Dakota Molding">
+                </li>
+                <li class="slide">
+                    <img src="{% static 'img/brand/5.png' %}" alt="Dakota Peat">
+                </li>
+                <li class="slide">
+                    <img src="{% static 'img/brand/6.png' %}" alt="First State Bank">
+                </li>
+                <li class="slide">
+                    <img src="{% static 'img/brand/7.png' %}" alt="Eastbay Campground">
+                </li>
+                <li class="slide">
+                    <img src="{% static 'img/brand/8.png' %}" alt="First State Bank">
+                </li>
+                <li class="slide">
+                    <img src="{% static 'img/brand/9.png' %}" alt="First State Bank">
+                </li>
+                <li class="slide">
+                    <img src="{% static 'img/brand/10.png' %}" alt="First State Bank">
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- @end .clients-wrap -->
+    </div>
+    <h2 class="bs">--started Third carousel--</h2>
+
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Browse All Cars</button>
+        <div id="myDropdown" class="dropdown-content">
+            <div class="conts"> <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+                <a href="#">Link 7</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 8</a>
+                <a href="#">Link 9</a>
+                <a href="#">Link 10</a>
+            </div>
+            <div class="conts"> <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+                <a href="#">Link 7</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 8</a>
+                <a href="#">Link 9</a>
+                <a href="#">Link 10</a>
+            </div>
+            <div class="conts"> <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 5</a>
+                <a href="#">Link 6</a>
+                <a href="#">Link 7</a>
+                <a href="#">Link 4</a>
+                <a href="#">Link 8</a>
+                <a href="#">Link 9</a>
+                <a href="#">Link 10</a>
+            </div>
+
+        </div>
+    </div>
+    <!-- 
+    <section class="regular slider">
+        <div>
+            <img src="http://placehold.it/350x300?text=1">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=2">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=3">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=4">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=5">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=6">
+        </div>
+    </section>
+
+    <section class="center slider">
+        <div>
+            <img src="http://placehold.it/350x300?text=1">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=2">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=3">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=4">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=5">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=6">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=7">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=8">
+        </div>
+        <div>
+            <img src="http://placehold.it/350x300?text=9">
+        </div>
+    </section> -->
+    <!-- @end #clients -->
     <div class="footer-basic ">
         <footer>
             <div class="social "><a href="# " target="__blank "><i class="fa fa-twitter "></i></a><a href="# " target="__blank "><i class="fa fa-linkedin "></i></a><a href="# " target="__blank "><i class="fa fa-google "></i></a><a href="# " target="__blank
@@ -1171,18 +1083,95 @@
             </a>
         </footer>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js "></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js "></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
 
         <script>
+            $(document).ready(function() {
+                $('.customer-logos').slick({
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    arrows: false,
+                    dots: false,
+                    pauseOnHover: false,
+                    responsive: [{
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    }, {
+                        breakpoint: 520,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    }]
+                });
+            });
+
             function myFunction() {
                 var x = document.getElementById("myTopnav ");
                 if (x.className === "topnav ") {
                     x.className += " responsive ";
                 } else {
                     x.className = "topnav ";
+                }
+            }
+        </script>
+        <script>
+            $(function() {
+                // vars for clients list carousel
+                // http://stackoverflow.com/questions/6759494/jquery-function-definition-in-a-carousel-script
+                var $clientcarousel = $('#clients-list');
+                var clients = $clientcarousel.children().length;
+                var clientwidth = (clients * 220); // 140px width for each client item 
+                $clientcarousel.css('width', clientwidth);
+
+                var rotating = true;
+                var clientspeed = 0;
+                var seeclients = setInterval(rotateClients, clientspeed);
+
+                $(document).on({
+                    mouseenter: function() {
+                        rotating = true; // turn off rotation when hovering
+                    },
+                    mouseleave: function() {
+                        rotating = true;
+                    }
+                }, '#clients');
+
+                function rotateClients() {
+                    if (rotating != false) {
+                        var $first = $('#clients-list li:first');
+                        $first.animate({
+                            'margin-left': '-220px'
+                        }, 2000, function() {
+                            $first.remove().css({
+                                'margin-left': '0px'
+                            });
+                            // $('#clients-list li:last').before($first);
+                        });
+                    }
+                }
+            });
+        </script>
+        <script>
+            /* When the user clicks on the button,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
                 }
             }
         </script>
