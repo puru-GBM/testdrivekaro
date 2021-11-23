@@ -51,15 +51,7 @@
         
         .back {
             background-color: rgb(237, 235, 235);
-            font-family: 'futura-pt', sans-serif;
-            text-align: center;
-            height: auto;
-            width: 100%;
-            margin-bottom: 3%;
-            padding: 0px 24px;
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1366px;
+            justify-content: center;
         }
         
         .bg-text {
@@ -306,12 +298,6 @@
             .sel:hover {
                 color: #3f6bfc;
             }
-        }
-        
-        .lin {
-            border-left: 2px solid white;
-            border-right: 2px solid white;
-            opacity: 90%;
         }
         
         .set {
@@ -828,6 +814,15 @@
         .show {
             display: block;
         }
+        
+        .lin {
+            border: 2px solid green;
+        }
+        
+        .blok {
+            padding: 10px;
+            border: 2px solid green;
+        }
     </style>
     <title>Test Drive Karo</title>
 </head>
@@ -859,8 +854,8 @@
     </nav>
 
     <div class="imgs"></div>
+    <div class="blok">
 
-    <div class="lin">
         <div class="back">
             <form action="#" method="post">
                 {% csrf_token %}
@@ -928,94 +923,52 @@
             <h2 class="bs"><a href="http://testdrivekaro.com" target="_blank">http://www.testdrivekaro.com</a></h2>
         </div>
 
-    </div>
-    <h2 style="text-align: center;">--this is second slider-- </h2>
+        <h2 style="text-align: center;">--this is second slider-- </h2>
 
-    <div id="clients">
-        <div class="clients-wrap">
-            <ul id="clients-list" class="clearfix">
-                <li class="slide">
-                    <img src="{% static 'img/brand/1.png' %}" alt="Black Ace">
-                </li>
-                <li class="slide">
-                    <img src="{% static 'img/brand/2.png' %}" alt="First State Bank">
-                </li>
+        <div id="clients">
+            <div class="clients-wrap">
+                <ul id="clients-list" class="clearfix">
+                    <li class="slide">
+                        <img src="{% static 'img/brand/1.png' %}" alt="Black Ace">
+                    </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/2.png' %}" alt="First State Bank">
+                    </li>
 
-                <li class="slide">
-                    <img src="{% static 'img/brand/3.png' %}" alt="First State Bank">
-                </li>
-                <li class="slide">
-                    <img src="{% static 'img/brand/4.png' %}" alt="Dakota Molding">
-                </li>
-                <li class="slide">
-                    <img src="{% static 'img/brand/5.png' %}" alt="Dakota Peat">
-                </li>
-                <li class="slide">
-                    <img src="{% static 'img/brand/6.png' %}" alt="First State Bank">
-                </li>
-                <li class="slide">
-                    <img src="{% static 'img/brand/7.png' %}" alt="Eastbay Campground">
-                </li>
-                <li class="slide">
-                    <img src="{% static 'img/brand/8.png' %}" alt="First State Bank">
-                </li>
-                <li class="slide">
-                    <img src="{% static 'img/brand/9.png' %}" alt="First State Bank">
-                </li>
-                <li class="slide">
-                    <img src="{% static 'img/brand/10.png' %}" alt="First State Bank">
-                </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/3.png' %}" alt="First State Bank">
+                    </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/4.png' %}" alt="Dakota Molding">
+                    </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/5.png' %}" alt="Dakota Peat">
+                    </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/6.png' %}" alt="First State Bank">
+                    </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/7.png' %}" alt="Eastbay Campground">
+                    </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/8.png' %}" alt="First State Bank">
+                    </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/9.png' %}" alt="First State Bank">
+                    </li>
+                    <li class="slide">
+                        <img src="{% static 'img/brand/10.png' %}" alt="First State Bank">
+                    </li>
 
 
-            </ul>
+                </ul>
+            </div>
+            <!-- @end .clients-wrap -->
         </div>
-        <!-- @end .clients-wrap -->
-    </div>
-    <h2 class="bs">--started Third carousel--</h2>
+        <h2 class="bs">--started Third carousel--</h2>
 
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Browse All Cars</button>
-        <div id="myDropdown" class="dropdown-content">
-            <div class="conts"> <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
-                <a href="#">Link 7</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 8</a>
-                <a href="#">Link 9</a>
-                <a href="#">Link 10</a>
-            </div>
-            <div class="conts"> <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
-                <a href="#">Link 7</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 8</a>
-                <a href="#">Link 9</a>
-                <a href="#">Link 10</a>
-            </div>
-            <div class="conts"> <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
-                <a href="#">Link 6</a>
-                <a href="#">Link 7</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 8</a>
-                <a href="#">Link 9</a>
-                <a href="#">Link 10</a>
-            </div>
 
-        </div>
-    </div>
-    <!-- 
+        <!-- 
     <section class="regular slider">
         <div>
             <img src="http://placehold.it/350x300?text=1">
@@ -1066,7 +1019,68 @@
             <img src="http://placehold.it/350x300?text=9">
         </div>
     </section> -->
-    <!-- @end #clients -->
+        <!-- @end #clients -->
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Browse All Cars</button>
+            <div id="myDropdown" class="dropdown-content">
+                <div class="conts"> <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                    <a href="#">Link 7</a>
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 8</a>
+                    <a href="#">Link 9</a>
+                    <a href="#">Link 10</a>
+                </div>
+                <div class="conts"> <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 5</a>
+                    <a href="#">Link 6</a>
+                    <a href="#">Link 7</a>
+                    <a href="#">Link 4</a>
+                    <a href="#">Link 8</a>
+                    <a href="#">Link 9</a>
+                    <a href="#">Link 10</a>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="lin"></div>
+        <div class="pops">
+            <div class="pop-car-head">
+                <h2>Popular Cars</h2>
+                <div class="pop-car-content">
+                    <span>car1</span>
+                    <span>car2</span>
+                    <span>car3</span>
+                    <span>car4</span>
+                </div>
+            </div>
+        </div>
+        <div class="lin"></div>
+        <div class="late-car">
+            <div class="late-car-head">
+                <h2>Latest Cars</h2>
+                <div class="late-car-content">
+                    <span>car1</span>
+                    <span>car2</span>
+                    <span>car3</span>
+                    <span>car4</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
     <div class="footer-basic ">
         <footer>
             <div class="social "><a href="# " target="__blank "><i class="fa fa-twitter "></i></a><a href="# " target="__blank "><i class="fa fa-linkedin "></i></a><a href="# " target="__blank "><i class="fa fa-google "></i></a><a href="# " target="__blank
@@ -1082,99 +1096,100 @@
                 <p class="copyright ">Test Drive Karo © 2021</p>
             </a>
         </footer>
+    </div>
 
 
-        <script>
-            $(document).ready(function() {
-                $('.customer-logos').slick({
-                    slidesToShow: 6,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    autoplaySpeed: 1500,
-                    arrows: false,
-                    dots: false,
-                    pauseOnHover: false,
-                    responsive: [{
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 4
-                        }
-                    }, {
-                        breakpoint: 520,
-                        settings: {
-                            slidesToShow: 3
-                        }
-                    }]
-                });
-            });
-
-            function myFunction() {
-                var x = document.getElementById("myTopnav ");
-                if (x.className === "topnav ") {
-                    x.className += " responsive ";
-                } else {
-                    x.className = "topnav ";
-                }
-            }
-        </script>
-        <script>
-            $(function() {
-                // vars for clients list carousel
-                // http://stackoverflow.com/questions/6759494/jquery-function-definition-in-a-carousel-script
-                var $clientcarousel = $('#clients-list');
-                var clients = $clientcarousel.children().length;
-                var clientwidth = (clients * 220); // 140px width for each client item 
-                $clientcarousel.css('width', clientwidth);
-
-                var rotating = true;
-                var clientspeed = 0;
-                var seeclients = setInterval(rotateClients, clientspeed);
-
-                $(document).on({
-                    mouseenter: function() {
-                        rotating = true; // turn off rotation when hovering
-                    },
-                    mouseleave: function() {
-                        rotating = true;
+    <script>
+        $(document).ready(function() {
+            $('.customer-logos').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
                     }
-                }, '#clients');
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+        });
 
-                function rotateClients() {
-                    if (rotating != false) {
-                        var $first = $('#clients-list li:first');
-                        $first.animate({
-                            'margin-left': '-220px'
-                        }, 2000, function() {
-                            $first.remove().css({
-                                'margin-left': '0px'
-                            });
-                            // $('#clients-list li:last').before($first);
+        function myFunction() {
+            var x = document.getElementById("myTopnav ");
+            if (x.className === "topnav ") {
+                x.className += " responsive ";
+            } else {
+                x.className = "topnav ";
+            }
+        }
+    </script>
+    <script>
+        $(function() {
+            // vars for clients list carousel
+            // http://stackoverflow.com/questions/6759494/jquery-function-definition-in-a-carousel-script
+            var $clientcarousel = $('#clients-list');
+            var clients = $clientcarousel.children().length;
+            var clientwidth = (clients * 220); // 140px width for each client item 
+            $clientcarousel.css('width', clientwidth);
+
+            var rotating = true;
+            var clientspeed = 0;
+            var seeclients = setInterval(rotateClients, clientspeed);
+
+            $(document).on({
+                mouseenter: function() {
+                    rotating = true; // turn off rotation when hovering
+                },
+                mouseleave: function() {
+                    rotating = true;
+                }
+            }, '#clients');
+
+            function rotateClients() {
+                if (rotating != false) {
+                    var $first = $('#clients-list li:first');
+                    $first.animate({
+                        'margin-left': '-220px'
+                    }, 2000, function() {
+                        $first.remove().css({
+                            'margin-left': '0px'
                         });
-                    }
+                        // $('#clients-list li:last').before($first);
+                    });
                 }
-            });
-        </script>
-        <script>
-            /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
-            function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
             }
+        });
+    </script>
+    <script>
+        /* When the user clicks on the button,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
 
-            // Close the dropdown menu if the user clicks outside of it
-            window.onclick = function(event) {
-                if (!event.target.matches('.dropbtn')) {
-                    var dropdowns = document.getElementsByClassName("dropdown-content");
-                    var i;
-                    for (i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.classList.contains('show')) {
-                            openDropdown.classList.remove('show');
-                        }
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
                     }
                 }
             }
-        </script>
+        }
+    </script>
 
 </body>
 
