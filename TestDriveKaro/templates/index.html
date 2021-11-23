@@ -816,15 +816,57 @@
         }
         
         .lin {
+            margin-top: 5px;
             border: 2px solid green;
         }
         
         .blok {
             padding: 10px;
-            border: 2px solid green;
+        }
+        
+        .pops {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 1px;
+        }
+        
+        .pops .pop-head {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        .pops .pop-content-row {
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .pops .pop-content-row .card {
+            margin: 10px;
+        }
+        
+        .late-car {
+            padding: 1px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .late-car .late-head {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .late-car .late-content-row {
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .late-car .late-content-row .card {
+            margin: 10px;
         }
     </style>
     <title>Test Drive Karo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -1023,7 +1065,8 @@
         <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">Browse All Cars</button>
             <div id="myDropdown" class="dropdown-content">
-                <div class="conts"> <a href="#">Link 1</a>
+                <div class="conts">
+                    <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
                     <a href="#">Link 3</a>
                     <a href="#">Link 4</a>
@@ -1035,7 +1078,8 @@
                     <a href="#">Link 9</a>
                     <a href="#">Link 10</a>
                 </div>
-                <div class="conts"> <a href="#">Link 1</a>
+                <div class="conts">
+                    <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
                     <a href="#">Link 3</a>
                     <a href="#">Link 4</a>
@@ -1053,25 +1097,83 @@
         </div>
         <div class="lin"></div>
         <div class="pops">
-            <div class="pop-car-head">
+            <div class="pop-head">
                 <h2>Popular Cars</h2>
-                <div class="pop-car-content">
-                    <span>car1</span>
-                    <span>car2</span>
-                    <span>car3</span>
-                    <span>car4</span>
-                </div>
             </div>
+            <div class="pop-content-row">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{% static 'img/car/pop/1.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Volkswagen Tiguan 2021 (UPCOMING)</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" target="__blank" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{% static 'img/car/pop/2.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Citroen C5 Aircross</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" target="__blank" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{% static 'img/car/pop/3.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">MG Hector</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" target="__blank" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{% static 'img/car/pop/4.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Toyota Fortuner</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" target="__blank" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
         <div class="lin"></div>
         <div class="late-car">
-            <div class="late-car-head">
+            <div class="late-head">
                 <h2>Latest Cars</h2>
-                <div class="late-car-content">
-                    <span>car1</span>
-                    <span>car2</span>
-                    <span>car3</span>
-                    <span>car4</span>
+                <div class="late-content-row">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'img/car/late/1.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Maruti Celerio</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'img/car/late/2.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Tata Punch</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'img/car/late/3.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Tata Punch</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'img/car/late/4.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Honda Amaze</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1171,7 +1273,7 @@
     </script>
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
