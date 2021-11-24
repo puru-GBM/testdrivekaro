@@ -1,1 +1,279 @@
-{% extends 'basic.html' %}{% block title %} Contacts {% endblock %}
+{% extends 'basic.html' %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/common.css' %}"> {% block title %} product {% endblock %} {% block body %}
+
+<style>
+    .back {
+        display: flex;
+        position: relative;
+        padding: 5px;
+        background-color: rgb(237, 235, 235);
+    }
+    
+    .back .blac {
+        position: relative;
+        display: inline-block;
+        padding: 5px;
+        margin-left: 20px;
+        background-color: rgb(237, 235, 235);
+        width: max-content;
+    }
+    
+    .back .blac .k {
+        background-color: yellow;
+    }
+    
+    .sel {
+        padding: 9px 20px 9px 5px;
+        margin: 9px 4px;
+        width: 150px;
+        line-height: 1.2;
+        position: relative;
+        font-family: 'futura-pt', sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        color: #666;
+        border-top: 1px solid #22222238;
+        border-bottom: 1px solid #22222238;
+        border-left: white;
+        border-right: white;
+        background: transparent;
+    }
+    
+    .im {
+        text-align: left;
+        margin-right: 40px;
+    }
+    
+    .sels {
+        padding: 9px 20px 9px 6px;
+        margin: 9px 4px;
+        width: 150px;
+        line-height: 1.2;
+        position: relative;
+        font-family: 'futura-pt', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        cursor: pointer;
+        color: #666;
+        border-top: 1px solid #22222238;
+        border-bottom: 1px solid #22222238;
+        border-left: none;
+        border-right: none;
+        letter-spacing: .3px;
+        background: transparent;
+        background-image: url("/static/img/sr1.png");
+        background-repeat: no-repeat;
+        background-position-x: left;
+        background-position-y: center;
+    }
+    
+    .sels:hover {
+        color: #1100fc;
+        background-image: url("{% static 'img/sr3.gif' %}");
+        background-size: 27px 27px;
+        background-repeat: no-repeat;
+        transition: 1.0s;
+        cursor: pointer;
+    }
+    
+    .sel.active::before {
+        transform: rotateX(-180deg);
+    }
+    
+    .sel.active::after {
+        transform: rotateX(360deg);
+    }
+    
+    .sel:hover {
+        color: #3f6bfc;
+    }
+    
+    .sel__placeholder {
+        display: block;
+        font-family: 'Quicksand';
+        font-size: 2.3em;
+        color: #838e95;
+        padding: 0.2em 0.5em;
+        text-align: left;
+        pointer-events: none;
+        user-select: none;
+        visibility: visible;
+    }
+    
+    .sel.active .sel__placeholder {
+        visibility: hidden;
+    }
+    
+    .sel__placeholder::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0.2em 0.5em;
+        content: attr(data-placeholder);
+        visibility: hidden;
+    }
+    
+    .sel.active .sel__placeholder::before {
+        visibility: visible;
+    }
+    
+    .sel__box {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: -4px;
+        display: none;
+        list-style-type: none;
+        text-align: left;
+        font-size: 1em;
+        background-color: #FFF;
+        width: calc(100% + 8px);
+        box-sizing: border-box;
+    }
+    
+    .sel.active .sel__box {
+        display: block;
+        animation: fadeInUp 500ms;
+    }
+    
+    .sel__box__options::after {
+        content: '\f00c';
+        font-family: 'FontAwesome';
+        font-size: 0.5em;
+        margin-left: 5px;
+        display: none;
+    }
+    
+    .sel__box__options.selected::after {
+        display: inline;
+    }
+    
+    .sel__box__options:hover {
+        background-color: #ebedef;
+    }
+    /* ----- Select Box Superman ----- */
+    
+    .sel--superman {
+        /*   display: none; */
+        z-index: 2;
+    }
+</style>
+<div class="back">
+    <form action="filterdata" method="post">
+        {% csrf_token %}
+        <div class="blac">
+            <select name="topbrand" id="select-profession" class=" sel active flo" title="topbrand">
+            
+                <option selected="true" disabled="disabled"  >Top Brands</option>
+                <option class="k"  value="maruti">Maruti Suzuki</option>
+                <option class="k"  value="hyundai"> Hyundai</option>
+                <option class="k"  value="tata">Tata</option>
+                <option class="k"  value="mahindra">Mahindra</option>
+                <option class="k"  value="honda">Honda</option>
+                
+           
+          
+            </select>
+        </div>
+        <div class="blac">
+            <select name="luxury" id="select-superpower" class=" sel flo" title="luxury">
+                <option selected="true" disabled="disabled"  >Luxury</option>
+                <option class="k"  value="mercedes">Mercedes</option>
+                <option class="k"  value="jaguar">Jaguar</option>
+                <option class="k"  value="volvo">Volvo</option>
+                <option class="k"  value="bmw">BMW</option>
+                <option class="k"  value="audi">Audi</option>
+            </select>
+        </div>
+        <div class="blac">
+            <select name="color" id="select-superpower" class=" sel flo " title="color">
+                <option selected="true" disabled="disabled"  >Color</option>
+                <option  class="k"  value="black">Black</option>
+                <option class="k"  value="red">Red</option>
+                <option class="k"  value="blue">Blue</option>
+                <option class="k"  value="silver">Silver</option>
+            </select>
+        </div>
+        <div class="blac">
+            <select name="price" id="select-superpower" class=" sel flo" title="price">
+                <option selected="true" disabled="disabled" >Price</option>
+                <option class="k" value="100000 - 1000000">1 lac-10 Lac</option>
+                <option class="k" value="1000000 - 2000000">10 lac-20 Lac</option>
+                <option class="k" value="2000000 - 5000000">20 lac-50 Lac</option>
+                <option class="k" value="5000000 - 100000000000">50 lac and more</option>
+            </select>
+        </div>
+
+        <div class="blac">
+            <button type="submit" class="sels"><b>Submit</b></button>
+        </div>
+    </form>
+</div>
+
+<div class="lin"></div>
+<div class="late-car">
+    <div class="late-head">
+        <h2>Filtered cars</h2>
+    </div>
+    {% if car %}
+    <div class="late-content-row">
+
+        {% for i in car|slice:'0:' %}
+        <div class="card" style="width: 20rem; height: 25rem;">
+            <img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{i.topbrand}}</h5>
+                <p class="card-text">{{i.model}}{{i.color}}{{i.price}}</p>
+                <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+    </div>
+
+    <div class="late-content-row">
+        {% endif %} {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="late-content-row">
+
+        {% for i in cars|slice:'0:' %}
+        <div class="card" style="width: 20rem; height: 25rem;">
+            <img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{i.TopBrands}}</h5>
+                <p class="card-text">{{i.model}}{{i.color}}{{i.Price}}</p>
+                <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+    </div>
+    <div class="late-content-row">
+        {% endif %} {% endfor %}
+    </div>
+    <div class="late-content-row">
+
+        {% for i in maruti|slice:'0:' %}
+        <div class="card" style="width: 20rem; height: 25rem;">
+            <img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{i.topbrand}}</h5>
+                <p class="card-text">{{i.model}}{{i.color}}{{i.price}}</p>
+                <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+    </div>
+    <div class="late-content-row">
+        {% endif %} {% endfor %}
+    </div>
+
+
+</div>
+
+{% endblock %}

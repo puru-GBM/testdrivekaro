@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
     path('ind',views.index,name='ind'),
+    path('filterdata',views.filterdata,name='filterdata'),
     path('luxury',views.luxury,name='luxury'),
     path('topbrand',views.topbrand,name='topbrand'),
     path('topchoice',views.topchoice,name='topchoice'),

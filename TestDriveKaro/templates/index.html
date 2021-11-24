@@ -818,54 +818,53 @@
     <div class="blok">
 
         <div class="back">
-            <form action="#" method="post">
+            <form action="filterdata" method="post">
                 {% csrf_token %}
                 <div class="blac">
-                    <select name="select-profession" id="select-profession" class=" sel active flo">
+                    <select name="topbrand" id="select-profession" class="selct sel active flo" title="topbrand">
                     
-                        <option value="k" >Top Brands</option>
-                        <option class="k" value="hacker">Maruti Suzuki</option>
-                        <option class="k" value="gamer"> Hyundai</option>
-                        <option class="k" value="developer">Tata</option>
-                        <option class="k" value="programmer">Mahindra</option>
-                        <option class="k" value="designer">Honda</option>
+                        <option selected="true" disabled="disabled" >Top Brands</option>
+                        <option class="k" value="maruti">Maruti Suzuki</option>
+                        <option class="k" value="hyundai"> Hyundai</option>
+                        <option class="k" value="tata">Tata</option>
+                        <option class="k" value="mahindra">Mahindra</option>
+                        <option class="k" value="honda">Honda</option>
                         
                    
                   
-                </select>
+                    </select>
                 </div>
                 <div class="blac">
-                    <select name="select-superpower" id="select-superpower" class=" sel flo">
-                  <option value="" >Luxury</option>
-                  <option class="k" value="hacker">Mercedes</option>
-                  <option class="k" value="gamer">Jaguar</option>
-                  <option class="k" value="programmer">Volvo</option>
-                  <option class="k" value="programmer">BMW</option>
-                  <option class="k" value="programmer">Audi</option>
-                </select>
+                    <select name="luxury" id="select-superpower" class=" sel flo" title="luxury">
+                        <option selected="true" disabled="disabled" >Luxury</option>
+                        <option class="k" value="mercedes">Mercedes</option>
+                        <option class="k" value="jaguar">Jaguar</option>
+                        <option class="k" value="volvo">Volvo</option>
+                        <option class="k" value="bmw">BMW</option>
+                        <option class="k" value="audi">Audi</option>
+                    </select>
                 </div>
                 <div class="blac">
-                    <select name="select-superpower" id="select-superpower" class="sel flo">
-                  <option value="" >Color</option>
-                 <option  class="k" value="hacker">Black</option>
-                  <option class="k" value="hacker">Red</option>
-                  <option class="k" value="hacker">Blue</option>
-                  <option class="k" value="hacker">Silver</option>
-                </select>
+                    <select name="color" id="select-superpower" class="selct sel flo" title="color">
+                        <option selected="true" disabled="disabled" >Color</option>
+                        <option  class="k"   value="black">Black</option>
+                        <option class="k"   value="red">Red</option>
+                        <option class="k"   value="blue">Blue</option>
+                        <option class="k"   value="silver">Silver</option>
+                    </select>
                 </div>
                 <div class="blac">
-                    <select name="select-superpower" id="select-superpower" class="sel flo">
-                    <option value="">Price</option>
-                    <option class="k" value="hacker">0-0 Lac</option>
-                    <option class="k" value="gamer">0-0 Lac</option>
-                    <option class="k" value="developer">0-0 Lac</option>
-                    <option class="k" value="programmer">0-0 Lac</option>
-                </select>
+                    <select name="price" id="select-superpower" class="selct sel flo" title="price">
+                        <option selected="true" disabled="disabled">Price</option>
+                        <option class="k"  value="100000 - 1000000">1 lac-10 Lac</option>
+                        <option class="k"  value="1000000 - 2000000">10 lac-20 Lac</option>
+                        <option class="k"  value="2000000 - 5000000">20 lac-50 Lac</option>
+                        <option class="k"  value="5000000 - 10000000000">50 lac and more</option>
+                    </select>
                 </div>
 
                 <div class="blac">
-
-                    <button type="submit" class="sels"><b>Submit</b></button>
+                    <button type="submit" class="sels "><b>Submit</b></button>
                 </div>
             </form>
         </div>
@@ -977,6 +976,7 @@
                 </div>
 
             </div>
+
             <div class="more">
                 <a href="#">
                     <button type="submit" value="Show More" class="arr">Show More</button>
@@ -988,38 +988,39 @@
         <div class="late-car">
             <div class="late-head">
                 <h2>Latest Cars</h2>
-                <div class="late-content-row">
-                    <div class="card" style="width: 25rem; height: 30rem;">
-                        <img class="card-img-top" src="{% static 'img/car/late/1.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Maruti Celerio</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
-                        </div>
+            </div>
+
+            <div class="late-content-row">
+                <div class="card" style="width: 25rem; height: 30rem;">
+                    <img class="card-img-top" src="{% static 'img/car/late/1.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Maruti Celerio</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
                     </div>
-                    <div class="card" style="width: 25rem; height: 30rem;">
-                        <img class="card-img-top" src="{% static 'img/car/late/2.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Tata Punch</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
-                        </div>
+                </div>
+                <div class="card" style="width: 25rem; height: 30rem;">
+                    <img class="card-img-top" src="{% static 'img/car/late/2.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Tata Punch</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
                     </div>
-                    <div class="card" style="width: 25rem; height: 30rem;">
-                        <img class="card-img-top" src="{% static 'img/car/late/3.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Tata Punch</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
-                        </div>
+                </div>
+                <div class="card" style="width: 25rem; height: 30rem;">
+                    <img class="card-img-top" src="{% static 'img/car/late/3.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Tata Punch</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
                     </div>
-                    <div class="card" style="width: 25rem; height: 30rem;">
-                        <img class="card-img-top" src="{% static 'img/car/late/4.jpg' %}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Honda Amaze</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
-                        </div>
+                </div>
+                <div class="card" style="width: 25rem; height: 30rem;">
+                    <img class="card-img-top" src="{% static 'img/car/late/4.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Honda Amaze</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" target="--blank" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -1074,7 +1075,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
@@ -1093,6 +1094,23 @@
             }
         }
     </script>
+    <script>
+        let input = document.querySelector(".selct");
+        let button = document.querySelector(".button");
+
+        button.disabled = true; //setting button state to disabled
+
+        input.addEventListener("change", stateHandle);
+
+        function stateHandle() {
+            if (document.querySelector(".selct").value === "") {
+                button.disabled = true; //button remains disabled
+            } else {
+                button.disabled = false; //button is enabled
+            }
+        }
+    </script>
+
 
 </body>
 
