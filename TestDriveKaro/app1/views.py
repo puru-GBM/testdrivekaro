@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Contact
 
 # Create your views here.
 
@@ -23,6 +24,15 @@ def royal(request):
     return render(request,'royal.html')
 
 def contact(request):
+    if request.method=="POST":
+        name=request.POST.get('name', '')
+        email=request.POST.get('email', '')
+        phone=request.POST.get('phono', '')
+        subject=request.POST.get('subject', '')
+        message=request.POST.get('message', '')
+        print(name,email,phone,subject,message)
+        contact=Contact(name=name,email=email,contact=phone,Subject=subject,message=message)
+        contact.save()
     return render(request,'contact.html')
 
 def privacy(request):
