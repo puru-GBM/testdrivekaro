@@ -51,65 +51,37 @@ def filterdata(request):
     cars = filter_top.objects.all()
     cars2 = filter_luxury.objects.all()
     brand=[]
+    brands=[]
     # # print(cars)
     n=len(cars)
+    n2=len(cars2)
+    nn=n+n2
+    nslides2= n2//4 + ceil((n2/4 - (n2//4)))
     # # print(n)
+    filtered="Filtered Cars"
+    
     nslides= n//4 + ceil((n/4 - (n//4)))
     if request.method=="POST":
         topbrand=request.POST.get('topbrand',"no") 
         luxury=request.POST.get('luxury',"no")
         color=request.POST.get('color',"no")
         price=request.POST.get('price',"no")
-        # print(topbrand,luxury)
-        if topbrand == "":
-            print(topbrand)
-            prices = price.split()    
-            prices[0]=int(prices[0])
-            prices[2]=int(prices[2])
-            # print(prices[0])
-            # print(prices[2])
-            for i in range(n):
-        
-                if cars[i].TopBrands == topbrand and cars[i].color == color and prices[0] <= cars[i].Price <= prices[2]:
-                    data={
-                        'topbrand' : cars[i].TopBrands,
-                        'model'    : cars[i].model,
-                        'color': cars[i].color,
-                        'price':cars[i].Price,
-                        'img' :cars[i].img,
-                        'url':cars[i].url,
-                        }
-                    brand.append(data)
-                    # print(brand)
-            params={'no_of_slides':nslides, 'range':range(nslides) ,'car':brand}
+        lux="Luxury Cars"
+        total="Total Car"
+        top="Top Brands"
+        if topbrand =='no' and luxury == 'no' and color =='no' and price=='no':
+            # print(topbrand,luxury,color,price)
+
+            params={'lux':lux,'top':top,'total':total,'length':nn,'lens':n,'len':n2, 'range':range(nslides) ,'range':range(nslides2) ,'car':cars,'ca':cars2}
             return render(request,'filterdata.html',params)
         
-        elif topbrand == "maruti" :
-            print(topbrand,color, price)
-            # print(prices[0])
-            # print(prices[2])
-            if topbrand =="maruti" and color=='no' and price=='no':
-
-                for i in range(n):
         
-                    if cars[i].TopBrands == topbrand:
-                        data={
-                            'topbrand' : cars[i].TopBrands,
-                            'model'    : cars[i].model,
-                            'color': cars[i].color,
-                            'price':cars[i].Price,
-                            'img' :cars[i].img,
-                            'url':cars[i].url,
-                        }
-                        brand.append(data)
-                        # print(brand)
-               
-            if topbrand =="maruti" and color!='no' and price=='no':
-                # prices = price.split()    
-                # prices[0]=int(prices[0])
-                # prices[2]=int(prices[2])
+        
+        else :
+                    # XX--if top brand and there artibutes are on --XX
+            if topbrand !='no' and luxury == 'no' and color =='no' and price=='no':            
                 for i in range(n):
-                    if cars[i].TopBrands == topbrand and cars[i].color == color  :
+                    if topbrand==cars[i].TopBrands:
                         data={
                             'topbrand' : cars[i].TopBrands,
                             'model'    : cars[i].model,
@@ -119,14 +91,369 @@ def filterdata(request):
                             'url':cars[i].url,
                             }
                         brand.append(data)
-                        # print(brand)
+                n1=len(brand)         
+                params={'lux':lux,'total':filtered,'length':n1,'top':top,'lens':top, 'range':range(nslides)  ,'filt':brand,}
+                return render(request,'filterdata.html',params)
+
+            # XX-- brand and Color is on --xx
+            elif topbrand !='no' and luxury == 'no' and color !='no' and price=='no':
+                
+                
+                for i in range(n):
+        
+                    if topbrand==cars[i].TopBrands and color == cars[i].color:
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data)
+                  
+                n1=len(brand)
+            
+                params={'lux':lux,'total':filtered,'length':n1,'top':top,'lens':top, 'range':range(nslides)  ,'filt':brand,}
+                return render(request,'filterdata.html',params)
+
+                # xx-- brand and price is on
+            elif topbrand !='no' and luxury == 'no' and color =='no' and price !='no':                
+                
+                for i in range(n):
+                    prices =price.split()
+                    a=int(prices[0])
+                    b=int(prices[2])
+        
+                    if topbrand==cars[i].TopBrands and cars[i].Price >= a and cars[i].Price <=b :
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data) 
+                n1=len(brand)
+
+            
+                params={'lux':lux,'total':filtered,'length':n1,'top':top,'lens':top, 'range':range(nslides)  ,'filt':brand,}
+                return render(request,'filterdata.html',params)
+
+                # xx---- brand color price is on here---- xx
+
+            elif topbrand !='no' and luxury == 'no' and color !='no' and price!='no':  
+                prices =price.split()
+                a=int(prices[0])
+                b=int(prices[2])        
+                
+                for i in range(n):
+                    if topbrand==cars[i].TopBrands  and color == cars[i].color and cars[i].Price >= a and cars[i].Price <=b:
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data)
+                n1=len(brand)
+            
+                params={'lux':lux,'total':filtered,'length':n1,'top':top,'lens':top, 'range':range(nslides)  ,'filt':brand,}
+                return render(request,'filterdata.html',params)
+            
+                # XX-- luxury and there atributes are on --xx
+
+            elif topbrand =='no' and luxury != 'no' and color =='no' and price=='no':    
+                for i in range(n2):
+        
+                    if luxury==cars2[i].Luxury:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                n3=len(brands)
+            
+                params={'luxs':lux,'total':filtered,'lenss':n3,'top':top, 'range':range(nslides)  ,'filts':brands,}
+                return render(request,'filterdata.html',params)
+                # XX-- luxury and color combo -XX
+            elif topbrand =='no' and luxury != 'no' and color !='no' and price=='no':    
+                for i in range(n2):
+                    if luxury==cars2[i].Luxury and color == cars2[i].color:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                n3=len(brands)           
+                params={'luxs':lux,'total':filtered,'lenss':n3,'top':top, 'range':range(nslides)  ,'filts':brands,}
+                return render(request,'filterdata.html',params)
+                #   XX-- luxury and price combo --XX
+            elif topbrand =='no' and luxury != 'no' and color =='no' and price!='no':  
+                prices =price.split()
+                a=int(prices[0])
+                b=int(prices[2])  
+                for i in range(n2):
+                    if luxury==cars2[i].Luxury and a<= cars2[i].Price <= b:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                n3=len(brands)            
+                params={'luxs':lux,'total':filtered,'lenss':n3,'top':top, 'range':range(nslides)  ,'filts':brands,}
+                return render(request,'filterdata.html',params)
+            elif topbrand =='no' and luxury != 'no' and color !='no' and price!='no':    
+                prices =price.split()
+                a=int(prices[0])
+                b=int(prices[2]) 
+                for i in range(n2):
+                    if luxury==cars2[i].Luxury and color == cars2[i].color and a<= cars2[i].Price <= b:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                n3=len(brands)            
+                params={'luxs':lux,'total':filtered,'lenss':n3,'top':top, 'range':range(nslides)  ,'filts':brands,}
+                return render(request,'filterdata.html',params)
+                    # XX -- luxury and brands on --XX
+            elif topbrand !='no' and luxury != 'no' and color =='no' and price=='no':
+                for i in range(n):
+                    if topbrand==cars[i].TopBrands:
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data)
+                n1=len(brand)
+                for i in range(n2):
+        
+                    if luxury==cars2[i].Luxury:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                   
+                n3=len(brands)
+            
+                params={'luxs':lux,'total':filtered,'lens':n1,'lenss':n3,'top':top, 'range':range(nslides)  ,'filt':brand,'filts':brands}
+                return render(request,'filterdata.html',params)
+
+                # XX -- brand luxury and color is on -- XX
+
+            elif topbrand !='no' and luxury != 'no' and color !='no' and price=='no':
+                for i in range(n):
+                    if topbrand==cars[i].TopBrands and color==cars[i].color:
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data)
+                n1=len(brand)
+                for i in range(n2):
+        
+                    if luxury==cars2[i].Luxury and color==cars2[i].color:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                   
+                n3=len(brands)
+            
+                params={'luxs':lux,'total':filtered,'lens':n1,'lenss':n3,'top':top, 'range':range(nslides)  ,'filt':brand,'filts':brands}
+                return render(request,'filterdata.html',params)
+
+                # XX -- luxury price brand on --XX
+
+            elif topbrand !='no' and luxury != 'no' and color =='no' and price!='no':
+                prices =price.split()
+                a=int(prices[0])
+                b=int(prices[2])
+                for i in range(n):
+                    if topbrand==cars[i].TopBrands and a<= cars[i].Price <=b :
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data)
+                n1=len(brand)
+                for i in range(n2):
+        
+                    if luxury==cars2[i].Luxury and a<= cars2[i].Price <=b:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                   
+                n3=len(brands)
+            
+                params={'luxs':lux,'total':filtered,'lens':n1,'lenss':n3,'top':top, 'range':range(nslides)  ,'filt':brand,'filts':brands}
+                return render(request,'filterdata.html',params)
+
+                    # XX -- Everything is on --XX 
+
+            elif topbrand !='no' and luxury != 'no' and color !='no' and price!='no':
+                prices =price.split()
+                a=int(prices[0])
+                b=int(prices[2])
+                
+                for i in range(n):
+                    if topbrand==cars[i].TopBrands and color==cars[i].color and a<= cars[i].Price <=b:
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data)
+                n1=len(brand)
+                for i in range(n2):
+        
+                    if luxury==cars2[i].Luxury and color==cars2[i].color and a<= cars2[i].Price <=b:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                   
+                n3=len(brands)
+            
+                params={'luxs':lux,'total':filtered,'lens':n1,'lenss':n3,'top':top, 'range':range(nslides)  ,'filt':brand,'filts':brands}
+                return render(request,'filterdata.html',params)
+
+                # XX-- only color is on --XX
+
+            elif topbrand =='no' and luxury == 'no' and color !='no' and price=='no':
+
+                for i in range(n):
+                    if color==cars[i].color:
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data)
+          
+                n1=len(brand)
+                for i in range(n2):
+        
+                    if color==cars2[i].color:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+                  
+                n3=len(brands)
+            
+                params={'luxs':lux,'total':filtered,'lens':n1,'lenss':n3,'top':top, 'range':range(nslides)  ,'filt':brand,'filts':brands}
+                return render(request,'filterdata.html',params)
+
+                # XX-- only price is on --XX
+            elif topbrand =='no' and luxury == 'no' and color =='no' and price!='no':
+                prices =price.split()
+                a=int(prices[0])
+                b=int(prices[2])
+
+                for i in range(n):
+                    if cars[i].Price >= a and cars[i].Price <=b:
+                        data={
+                            'topbrand' : cars[i].TopBrands,
+                            'model'    : cars[i].model,
+                            'color': cars[i].color,
+                            'price':cars[i].Price,
+                            'img' :cars[i].img,
+                            'url':cars[i].url,
+                            }
+                        brand.append(data)
+              
+                n1=len(brand)
+                for i in range(n2):
+        
+                    if cars2[i].Price >=a  and  cars2[i].Price <= b:
+                        data={
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
+                            }
+                        brands.append(data)
+            
+                n3=len(brands)
+            
+                params={'luxs':lux,'total':filtered,'lens':n1,'lenss':n3,'top':top, 'range':range(nslides)  ,'filt':brand,'filts':brands}
+                return render(request,'filterdata.html',params)
+
+                # XX-- color and price on --XX
+            elif topbrand =='no' and luxury == 'no' and color !='no' and price!='no':
+                prices =price.split()
+                a=int(prices[0])
+                b=int(prices[2])
            
-            if topbrand =="maruti" and color!='no' and price!='no':
-                prices = price.split()    
-                prices[0]=int(prices[0])
-                prices[2]=int(prices[2])
                 for i in range(n):
-                    if cars[i].TopBrands == topbrand and cars[i].color == color  and prices[0] <= cars[i].Price <= prices[2]  :
+                    if cars[i].color  == color and cars[i].Price >= a and cars[i].Price <=b:
                         data={
                             'topbrand' : cars[i].TopBrands,
                             'model'    : cars[i].model,
@@ -136,46 +463,22 @@ def filterdata(request):
                             'url':cars[i].url,
                             }
                         brand.append(data)
-                        # print(brand)
-            if topbrand =="maruti" and color=='no' and price!='no':
-                prices = price.split()    
-                prices[0]=int(prices[0])
-                prices[2]=int(prices[2])
-                for i in range(n):
-                    if cars[i].TopBrands == topbrand and prices[0] <= cars[i].Price <= prices[2]  :
+                  
+                n1=len(brand)
+                for i in range(n2):
+        
+                    if cars2[i].color == color   and cars2[i].Price >=a  and  cars2[i].Price <= b:
                         data={
-                            'topbrand' : cars[i].TopBrands,
-                            'model'    : cars[i].model,
-                            'color': cars[i].color,
-                            'price':cars[i].Price,
-                            'img' :cars[i].img,
-                            'url':cars[i].url,
+                            'Luxury' : cars2[i].Luxury,
+                            'model'    : cars2[i].model,
+                            'color': cars2[i].color,
+                            'Price':cars2[i].Price,
+                            'img' :cars2[i].img,
+                            'url':cars2[i].url,
                             }
-                        brand.append(data)
-                        # print(brand)
-            params={'no_of_slides':nslides, 'range':range(nslides) ,'maruti':brand}
-            return render(request,'filterdata.html',params)
-        elif luxury=='no' and topbrand =="no" and color=='no' and price!='no':
-            print(topbrand,color, price)
-            prices = price.split()    
-            prices[0]=int(prices[0])
-            prices[2]=int(prices[2])
-            for i in range(n):
-                if  prices[0] <= cars[i].Price <= prices[2]  :
-                    data={
-                        'topbrand' : cars[i].TopBrands,
-                        'model'    : cars[i].model,
-                        'color': cars[i].color,
-                        'price':cars[i].Price,
-                        'img' :cars[i].img,
-                        'url':cars[i].url,
-                        }
-                    brand.append(data)
-                    print(brand)
-            params={'no_of_slides':nslides, 'range':range(nslides) ,'car':brand}
-            return render(request,'filterdata.html',params)
-
-        else:
-            params={'no_of_slides':nslides, 'range':range(nslides) ,'cars':cars}
-            return render(request,'filterdata.html',params)
-    
+                        brands.append(data)
+              
+                n3=len(brands)
+            
+                params={'luxs':lux,'total':filtered,'lens':n1,'lenss':n3,'top':top, 'range':range(nslides)  ,'filt':brand,'filts':brands}
+                return render(request,'filterdata.html',params)
