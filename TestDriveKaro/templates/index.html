@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="{% static 'img/logo2.gif' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}">
@@ -667,6 +667,7 @@
             margin-top: 5px;
             margin-bottom: 5px;
             margin-left: 20px;
+            width: 100%;
             color: black;
             padding: 12px 16px;
             text-decoration: none;
@@ -775,6 +776,57 @@
         
         .arr {
             content: ">";
+        }
+        
+        .pera {
+            text-align: center;
+            font-size: 0;
+            margin: 0 -20px;
+        }
+        
+        .pera .inner {
+            display: inline-block;
+            max-width: 160px;
+            width: auto;
+            margin-left: 4rem;
+            margin-right: 2rem;
+        }
+        
+        .pera .inner .image {
+            padding: 10px;
+            opacity: 0.9;
+            min-height: 62px;
+            line-height: 62px;
+        }
+        
+        .pera .inner .name {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #777;
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        .pera .inners {
+            display: inline-block;
+            max-width: 160px;
+            width: auto;
+            margin-left: 1px;
+            margin-right: 20px;
+        }
+        
+        .pera .inner .images {
+            padding: 8px;
+            min-height: 62px;
+            line-height: 62px;
+        }
+        
+        .names {
+            margin-top: 2px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            text-decoration: underline;
         }
     </style>
     <title>Test Drive Karo</title>
@@ -904,40 +956,120 @@
             </section>
         </div>
 
+
+
         <div class="dropdown">
             <button onclick="myFunction()" class="dropbtn">Browse All Cars</button>
             <div id="myDropdown" class="dropdown-content">
-                <div class="conts">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
-                    <a href="#">Link 7</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 8</a>
-                    <a href="#">Link 9</a>
-                    <a href="#">Link 10</a>
-                </div>
-                <div class="conts">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
-                    <a href="#">Link 7</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 8</a>
-                    <a href="#">Link 9</a>
-                    <a href="#">Link 10</a>
+                <div class="pera">
+                    <div class="conts">
+                        {% if car %} {% for i in car|slice:'0:' %}
+                        <a href="#">
+                            <div class="inners">
+                                <div class="images">
+                                    <img src="/media/{{i.img}}" alt="no img" width="80">
+                                </div>
+                                <div class="names">
+                                    {{i.TopBrands}}
+                                </div>
+                            </div>
+                        </a>
+                        {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
+                    </div>
+                    <div class="conts">
+                        {% endif %} {% endfor %}
+                    </div>
+                    {% endif %}
+                    <div class="conts">
+                        {% if cars %} {% for i in cars|slice:'0:' %}
+                        <a href="#">
+                            <div class="inners">
+                                <div class="images">
+                                    <img src="/media/{{i.img}}" alt="no img" width="80">
+                                </div>
+                                <div class="names">
+                                    {{i.Luxury}}
+                                </div>
+                            </div>
+                        </a>
+                        {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
+                    </div>
+                    <div class="conts">
+                        {% endif %} {% endfor %}
+                    </div>
+                    {% endif %}
+
+
+
                 </div>
 
 
             </div>
         </div>
         <div class="lin"></div>
+        <div class="pop-head">
+            <h2>Browse by type</h2>
+        </div>
+        <div class="pera">
+            <a href="#">
+                <div class="inner">
+                    <div class="image">
+                        <img src="{% static 'img/type/Compact.png' %}" alt="no img" width="100">
+                    </div>
+                    <div class="name">
+                        compact
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="inner">
+                    <div class="image">
+                        <img src="{% static 'img/type/Convertible.png' %}" alt="no img" width="100">
+                    </div>
+                    <div class="name">
+                        Convertible
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="inner">
+                    <div class="image">
+                        <img src="{% static 'img/type/Coupe.png' %}" alt="no img" width="100">
+                    </div>
+                    <div class="name">
+                        coupe
+                    </div>
+                </div>
+            </a>
+
+
+            <a href="#">
+                <div class="inner">
+                    <div class="image">
+                        <img src="{% static 'img/type/Sedan.png' %}" alt="no img" width="100">
+                    </div>
+                    <div class="name">
+                        sadan
+                    </div>
+                </div>
+            </a>
+
+            <a href="#">
+
+                <div class="inner">
+                    <div class="image">
+                        <img src="{% static 'img/type/SUV.png' %}" alt="no img" width="100">
+                    </div>
+                    <div class="name">
+                        suv
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="lin"></div>
+
         <div class="pops">
             <div class="pop-head">
                 <h2>Popular Cars</h2>
@@ -1076,7 +1208,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
@@ -1095,7 +1227,7 @@
             }
         }
     </script>
-    <script>
+    <!-- <script>
         let input = document.querySelector(".selct");
         let button = document.querySelector(".button");
 
@@ -1110,7 +1242,7 @@
                 button.disabled = false; //button is enabled
             }
         }
-    </script>
+    </script> -->
 
 
 </body>

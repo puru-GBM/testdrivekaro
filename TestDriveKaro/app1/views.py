@@ -6,9 +6,32 @@ from .models import Contact, filter_luxury, filter_top
 # Create your views here.
 
 def index(request):
-    return render(request,'index.html')
+    cars = filter_top.objects.all()
+    cars2 = filter_luxury.objects.all()
+    brand=[]
+    brands=[]
+    n=len(cars)
+    n2=len(cars2)
+    nslide= n//4 + ceil((n/4) - (n//4))
+    n2slide= n2//4 + ceil((n2/4) - (n2//4))
+    
+    # for i in range(n):
+    #     if cars[i].TopBrands not in brand:
+    #         data={
+    #             'name':cars[i].TopBrands
+    #             'img' :
+    #         }
+    #         brand.append(data)
+    # for i in range(n2):
+    #     if cars2[i].Luxury not in brands:
+    #         brands.append(cars2[i].Luxury)
+
+
+    print(brand , brands)
+    params={'no_of_slides':nslide,'range':range(nslide),'car':brand,'cars':brands}
+    return render(request,'index.html',params)
 def ind(request):
-   
+    
     return render(request,'index.html')
 
 def luxury(request):
@@ -56,11 +79,11 @@ def filterdata(request):
     n=len(cars)
     n2=len(cars2)
     nn=n+n2
-    nslides2= n2//4 + ceil((n2/4 - (n2//4)))
+    nslides2= n2//4 + ceil(n2/4 - (n2//4))
     # # print(n)
     filtered="Filtered Cars"
     
-    nslides= n//4 + ceil((n/4 - (n//4)))
+    nslides= n//4 + ceil(n/4 - (n//4))
     if request.method=="POST":
         topbrand=request.POST.get('topbrand',"no") 
         luxury=request.POST.get('luxury',"no")
