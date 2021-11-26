@@ -159,22 +159,28 @@
         /*   display: none; */
         z-index: 2;
     }
+    
+    .les {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
 </style>
 <div class="back">
     <form action="filterdata" method="post">
         {% csrf_token %}
         <div class="blac">
             <select name="topbrand" id="select-profession" class="selct sel active flo" title="topbrand">
-            
                 <option selected="true" disabled="disabled" >Top Brands</option>
                 <option class="k" value="Honda">Honda</option>
                 <option class="k" value="Hyundai">Hyundai</option>
                 <option class="k" value="MAHINDRA">Mahindra</option>
                 <option class="k" value="Maruti Suzuki">Maruti Suzuki</option>
-                <option class="k" value="TATA">Tata</option>
-                
-           
-          
+                <option class="k" value="TATA">Tata</option>    
             </select>
         </div>
         <div class="blac">
@@ -219,128 +225,145 @@
 
 <!-- when no data is selected then it will run -->
 
+<form action="carinfo" method="post">
+    {% csrf_token %} {% if car %}
 
-{% if car %}
-
-<div class="lin"></div>
-<div class="late-car">
-    <div class="late-head">
-        <h2>{{total}} - {{length}} | {{top}} - {{lens}}</h2>
-    </div>
-    <div name="{{i.TopBrands}}" class="late-content-row">
-
-        {% for i in car|slice:'0:' %}
-        <div class="card" style="width: 20rem; height: 25rem;">
-            <img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{i.TopBrands}}</h5>
-                <p class="card-text">{{i.model}}{{i.color}}{{i.Price}}</p>
-                <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
-            </div>
-        </div>
-        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
-
-    </div>
-
-    <div class="late-content-row">
-        {% endif %} {% endfor %}
-    </div>
-    {% endif %} {% if ca %}
-
-</div>
-<div class="late-car">
     <div class="lin"></div>
-
-    <div class="late-head">
-        <h2>{{lux}} - {{len}}</h2>
-    </div>
-    {% endif %}
-
-    <div class="late-content-row">
-
-
-        {% for i in ca|slice:'0:' %}
-        <div name="{{i.Luxury}}" class="card" style="width: 20rem; height: 25rem;">
-            <img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{i.Luxury}}</h5>
-                <p class="card-text">{{i.model}}{{i.color}}{{i.Price}}</p>
-                <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
-            </div>
+    <div class="late-car">
+        <div class="late-head">
+            <h2>{{total}} - {{length}} | {{top}} - {{lens}}</h2>
         </div>
-        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+        <div value="{{i.TopBrands}}" class="late-content-row">
+
+            {% for i in car|slice:'0:' %}
+            <div class="card" style="width: 20rem; height: 25rem;">
+
+                <a href="carinfo">
+                    <button type="submit" class="les" name="free_car" value="{{i.model}}"><img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
+                    </button>
+
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{i.TopBrands}}</h5>
+                    <p class="card-text">{{i.model}}{{i.color}}{{i.Price}}</p>
+                    <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+        </div>
+
+        <div class="late-content-row">
+            {% endif %} {% endfor %}
+        </div>
+        {% endif %} {% if ca %}
 
     </div>
-    <div class="late-content-row">
-        {% endif %} {% endfor %}
+    <div class="late-car">
+        <div class="lin"></div>
+
+        <div class="late-head">
+            <h2>{{lux}} - {{len}}</h2>
+        </div>
+        {% endif %}
+
+        <div class="late-content-row">
+
+
+            {% for i in ca|slice:'0:' %}
+            <div name="{{i.Luxury}}" class="card" style="width: 20rem; height: 25rem;">
+                <a href="carinfo">
+                    <button type="submit" class="les" name="free_car" value="{{i.model}}"><img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
+                    </button>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{i.Luxury}}</h5>
+                    <p class="card-text">{{i.model}}{{i.color}}{{i.Price}}</p>
+                    <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+        </div>
+        <div class="late-content-row">
+            {% endif %} {% endfor %}
+        </div>
+
+
+
     </div>
 
+</form>
 
-
-</div>
 <!-- this is the selected data -->
-
-
-{% if filt|length == 0 %}
-<div class="lin"></div>
-<h1 style="text-align: center;"> nothing to see here in Top Brands</h1> {% endif %} {% if filt %}
-<div class="late-car">
+<form action="carinfo" method="post">
+    {% csrf_token %} {% if filt|length == 0 %}
     <div class="lin"></div>
-    <div class="late-head">
-        <h2>{{total}} - {{length}} | {{top}} - {{lens}}</h2>
-    </div>
-    <div name="{{i.topbrand}}" class="late-content-row">
-
-        {% for i in filt|slice:'0:' %}
-        <div class="card" style="width: 20rem; height: 25rem;">
-            <img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{i.topbrand}}</h5>
-                <p class="card-text">{{i.model}}{{i.color}}{{i.price}}</p>
-                <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
-            </div>
+    <h1 style="text-align: center;"> nothing to see here in Top Brands</h1> {% endif %} {% if filt %}
+    <div class="late-car">
+        <div class="lin"></div>
+        <div class="late-head">
+            <h2>{{total}} - {{length}} | {{top}} - {{lens}}</h2>
         </div>
-        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+        <div name="{{i.topbrand}}" class="late-content-row">
 
-    </div>
-
-    <div class="late-content-row">
-        {% endif %} {% endfor %}
-    </div>
-    {% endif %} {% if filts|length == 0 %}
-    <div class="lin"></div>
-
-    <h1 style="text-align: center;"> nothing to see here in Luxury</h1> {% endif %}{% if filts %}
-
-</div>
-<div class="late-car">
-    <div class="lin"></div>
-
-    <div class="late-head">
-        <h2>{{luxs}} - {{lenss}}</h2>
-    </div>
-
-
-    <div class="late-content-row">
-
-
-        {% for i in filts|slice:'0:' %}
-        <div name="{{i.Luxury}}" class="card" style="width: 20rem; height: 25rem;">
-            <img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{i.Luxury}}</h5>
-                <p class="card-text">{{i.model}}{{i.color}}{{i.Price}}</p>
-                <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
+            {% for i in filt|slice:'0:' %}
+            <div class="card" style="width: 20rem; height: 25rem;">
+                <a href="carinfo">
+                    <button class="les" type="submit" name="free_car" value="{{i.model}}"><img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
+                    </button>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{i.topbrand}}</h5>
+                    <p class="card-text">{{i.model}}{{i.color}}{{i.price}}</p>
+                    <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
+                </div>
             </div>
+            {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
         </div>
-        {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+        <div class="late-content-row">
+            {% endif %} {% endfor %}
+        </div>
+        {% endif %} {% if filts|length == 0 %}
+        <div class="lin"></div>
+
+        <h1 style="text-align: center;"> nothing to see here in Luxury</h1> {% endif %}{% if filts %}
 
     </div>
-    <div class="late-content-row">
-        {% endif %} {% endfor %}
+    <div class="late-car">
+        <div class="lin"></div>
+
+        <div class="late-head">
+            <h2>{{luxs}} - {{lenss}}</h2>
+        </div>
+
+
+        <div class="late-content-row">
+
+
+            {% for i in filts|slice:'0:' %}
+            <div name="{{i.Luxury}}" class="card" style="width: 20rem; height: 25rem;">
+                <a href="carinfo">
+                    <button class="les" type="submit" name="free_car" value="{{i.model}}"><img class="card-img-top" src="/media/{{i.img}}" alt="Card image cap">
+                    </button>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{i.Luxury}}</h5>
+                    <p class="card-text">{{i.model}}{{i.color}}{{i.Price}}</p>
+                    <a href="{{i.url}}" target="--blank" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+        </div>
+        <div class="late-content-row">
+            {% endif %} {% endfor %}
+        </div>
+
+
+
     </div>
-
-
-
-</div>
+</form>
 {% endif %} {% endblock %}

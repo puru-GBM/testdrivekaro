@@ -2,19 +2,116 @@
 <style>
     .leftss {
         display: inline-block;
-        margin-top: 50px;
-        padding: 10px;
+        position: relative;
+        top: 45px;
+        padding: 20px;
         border: 2px solid blue;
+        text-align: center;
+    }
+    
+    .leftss .fili {
+        display: block;
+        padding: 9px 20px 9px 5px;
+        margin-top: 20px;
+        width: 150px;
+        line-height: 1.2;
+        font-family: 'futura-pt', sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        color: #666;
+        border-left: white;
+        border-right: white;
+        background: transparent;
+    }
+    
+    .selss {
+        padding: 9px 20px 9px 6px;
+        margin-top: 20px;
+        width: 150px;
+        line-height: 1.2;
+        position: relative;
+        font-family: 'futura-pt', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        cursor: pointer;
+        color: #666;
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.568);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.568);
+        letter-spacing: .3px;
+        background: transparent;
+        background-repeat: no-repeat;
+        background-position-x: left;
+        background-position-y: center;
+    }
+    
+    .selss:hover {
+        color: #1100fc;
+        background-size: 27px 27px;
+        background-repeat: no-repeat;
+        transition: 1.0s;
+        cursor: pointer;
+    }
+    
+    .sel.active::before {
+        transform: rotateX(-180deg);
+    }
+    
+    .sel.active::after {
+        transform: rotateX(360deg);
+    }
+    
+    .sel:hover {
+        color: #3f6bfc;
     }
     
     .right {
         display: inline-block;
+        position: relative;
+        top: -220px;
         border: 2px solid green;
         padding: 10px;
     }
 </style>{% endblock %} {% block body %}
+
 <div class="leftss">
-    left side
+    <div class="filt">
+        Filter Your Dream Car <img src="#" alt="no img" srcset="">
+    </div>
+    <div class="fili">
+        <select name="band" id="" class="fili">
+            <option selected="true" disabled="disabled" >Brands</option>
+            <option  value="Honda">Honda</option>
+            <option  value="Hyundai">Hyundai</option>
+            <option  value="MAHINDRA">Mahindra</option>
+            <option  value="Maruti Suzuki">Maruti Suzuki</option>
+            <option  value="TATA">Tata</option>
+
+        </select>
+        <select name="color" id="" class="fili"> 
+            <option selected="true" disabled="disabled" >Color</option>
+            <option    value="black">Black</option>
+                <option    value="blue">Blue</option>
+                <option    value="red">Red</option>
+                <option    value="silver">Silver</option>
+                <option    value="white">White</option>
+
+            </select>
+
+        <select name="price" id="" class="fili">
+                    <option selected="true" disabled="disabled">Price</option>
+                    <option   value="100000 - 1000000">1 lac-10 Lac</option>
+                    <option   value="1000000 - 2000000">10 lac-20 Lac</option>
+                    <option   value="2000000 - 5000000">20 lac-50 Lac</option>
+                    <option   value="5000000 - 10000000000">50 lac and more</option>
+                    
+                </select>
+        <div class="blac">
+            <button type="submit" class="selss"><b>Submit</b></button>
+        </div>
+    </div>
 
 
 </div>

@@ -47,3 +47,20 @@ class brand_luxury (models.Model):
 
     def __str__(self):
         return self.name
+
+class cars(models.Model):
+    brand = models.CharField(max_length=150)
+    model = models.CharField(max_length=150)
+    price = models.CharField(max_length=50)
+    img1 = models.ImageField(upload_to="media/carinfo",default="")
+    img2 = models.ImageField(upload_to="media/carinfo",default="")
+    img3 = models.ImageField(upload_to="media/carinfo",default="")
+    img4 = models.ImageField(upload_to="media/carinfo",default="")
+    body_type= models.CharField(max_length=150)
+    mileage= models.CharField(max_length=150)
+    fuel_type= models.CharField(max_length=150)
+    transmission= models.CharField(max_length=150)
+    sitting = models.CharField(max_length=150)
+    sunroof = models.CharField(max_length=150)
+    tank_capicity= models.CharField(max_length=150)
+

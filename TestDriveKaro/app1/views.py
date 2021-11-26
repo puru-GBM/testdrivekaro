@@ -1,7 +1,7 @@
 from django.db import models
 from django.shortcuts import render
 from math import ceil
-from .models import Contact, filter_luxury, filter_top,brand_top,brand_luxury
+from .models import Contact, filter_luxury, filter_top,brand_top,brand_luxury,cars
 
 # Create your views here.
 
@@ -52,6 +52,37 @@ def term(request):
 
 def about(request):
     return render(request,'about.html')
+def carinfo(request):
+    car=cars.objects.all()
+    carname=request.POST.get('free_car')
+    params=[]
+    brand=[]
+    n=len(car)
+    nslides= n//4 + ceil(n/4 - (n//4))
+
+    if request.method=="POST":
+        for i in range(n):
+            if carname == car[i].model:
+                data={
+                    'brand' :car[i].brand,
+                    'model' :car[i].model,
+                    'price' :car[i].price,
+                    'img1' :car[i].img1,
+                    'img2' :car[i].img2,
+                    'img3' :car[i].img3,
+                    'img4' :car[i].img4,
+                    'body' :car[i].body_type,
+                    'mil' :car[i].mileage,
+                    'fuel' :car[i].fuel_type,
+                    'trans' :car[i].transmission,
+                    'sitting' :car[i].sitting,
+                    'sunroof' :car[i].sunroof,
+                    'tank' :car[i].tank_capicity,
+                }
+
+                brand.append(data)
+    params={'length':n, 'range':range(nslides)  ,'car':brand}
+    return render(request,'carinfo.html',params)
 
 def filterdata(request):
     cars = filter_top.objects.all()

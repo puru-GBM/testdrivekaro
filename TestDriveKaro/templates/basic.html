@@ -11,11 +11,8 @@
     <link rel="shortcut icon" href="{% static 'img/logo2.gif' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
-    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
 
-
-
-    <!------ Include the above in your HEAD tag ---------->
     <meta name="keywords" content="Car driving, car booking , one stop shop, every cars, latest cars, top brands,">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +29,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 
-    <script src="{% static 'js/slick.js' %}"></script>
+    <!-- <script src="{% static 'js/slick.js' %}"></script> -->
 
     <!-- it is title  -->
     <title>{% block title %} {% endblock %}</title>
@@ -1000,31 +997,8 @@
 
 
     <script>
-        $(document).ready(function() {
-            $('.customer-logos').slick({
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 1500,
-                arrows: false,
-                dots: false,
-                pauseOnHover: false,
-                responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 4
-                    }
-                }, {
-                    breakpoint: 520,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                }]
-            });
-        });
-
         function myFunction() {
-            var x = document.getElementById("myTopnav ");
+            var x = document.getElementById("myTopnav");
             if (x.className === "topnav ") {
                 x.className += " responsive ";
             } else {
@@ -1071,23 +1045,9 @@
     </script>
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
         }
     </script>
 

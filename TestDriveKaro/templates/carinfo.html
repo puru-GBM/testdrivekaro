@@ -1,0 +1,390 @@
+{% extends 'basic.html' %} {% load static %}{% block title%} CarInfo {% endblock %} {% block css %}
+<style>
+    .blockk {
+        margin: 0px;
+        margin-top: 20px;
+        padding: 10px;
+    }
+    
+    .addresss {
+        margin: 2px;
+        padding: 2px;
+    }
+    
+    .imags {
+        margin: 2px;
+        padding: 2px;
+    }
+    
+    .imags .blkimg {
+        margin: 2px;
+        padding: 2px;
+    }
+    
+    .imags .blkimgs {
+        margin: 2px;
+        padding: 2px;
+    }
+    
+    .feas {
+        margin: 2px;
+        padding: 2px;
+    }
+    
+    .feat {
+        display: inline-block;
+        margin: 2px;
+        padding: 2px;
+    }
+    
+    .featurs {
+        margin: 2px;
+        margin-left: 100px;
+        padding: 2px;
+    }
+    
+    .heads {
+        margin: 2px;
+        margin-left: 2px;
+        padding: 2px;
+    }
+    
+    .selo {
+        padding: 9px 20px 9px 6px;
+        margin: 9px 4px;
+        width: 100%;
+        line-height: 1.2;
+        position: relative;
+        font-family: 'futura-pt', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        cursor: pointer;
+        color: #666;
+        border-top: 1px solid #22222238;
+        border-bottom: 1px solid #22222238;
+        border-left: none;
+        border-right: none;
+        letter-spacing: .3px;
+        background: transparent;
+        background-repeat: no-repeat;
+        background-position-x: left;
+        background-position-y: center;
+        text-align: left;
+    }
+    
+    .selo:hover {
+        color: #1100fc;
+        background-size: 27px 27px;
+        background-repeat: no-repeat;
+        transition: 1.0s;
+    }
+    
+    .set {
+        margin: 2px;
+        padding: 2px;
+        display: flex;
+    }
+    
+    .bord {
+        margin-top: 20px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.404);
+        width: 300px;
+    }
+</style>{% endblock %} {% block body %}
+<div class="blockk">
+
+    {% if car %}
+    <div class="addresss" style="font-size: 2em; font-weight: 600;color: #153e4d;">
+        {{car.0.brand}} - {{car.0.model}} <span style="position: absolute; right: 27px;">RS - {{ car.0.price}}</span>
+    </div>
+    <div class="imags">
+        <div class="blkimg">
+            <img src="/media/{{car.0.img1}}" alt="no img" srcset="" style="width: 100%;">
+        </div>
+        <div class="blkimgs">
+            <img style="margin: 20px; padding: 2px;" src="/media/{{car.0.img1}}" alt="no img" width="150" srcset="">
+            <img style="margin: 20px; padding: 2px;" src="/media/{{car.0.img2}}" alt="no img" width="150" srcset="">
+            <img style="margin: 20px; padding: 2px;" src="/media/{{car.0.img3}}" alt="no img" width="150" srcset="">
+            <img style="margin: 20px; padding: 2px;" src="/media/{{car.0.img4}}" alt="no img" width="150" srcset="">
+        </div>
+        <table style="font-size: 1.5rem;">
+            <thead>
+                <tr>
+                    <td>
+                        <div class="bord" style="padding: 5px; "><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">Brand - <span style="text-align: right;">{{ car.0.brand}}</span></div>
+                    </td>
+                    <td>
+                        <div class="bord" style="padding: 5px; margin-left: 10px; "><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">Model - {{ car.0.model}}</div>
+                    </td>
+                    <td>
+                        <div class="bord" style="padding: 5px; margin-left: 10px; "><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">Body Type - {{ car.0.body}}</div>
+                    </td>
+                </tr>
+            </thead>
+            <div class="info" style="margin-top: 10px;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="bord" style="padding: 5px; "><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">Mileage - {{ car.0.mil}}</div>
+                        </td>
+                        <td>
+                            <div class="bord" style="padding: 5px; margin-left: 10px; "><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">fuel Type - {{ car.0.fuel}}</div>
+                        </td>
+                        <td>
+                            <div class="bord" style="padding: 5px; margin-left: 10px;"><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">Transmission - {{ car.0.trans}}</div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="bord" style="padding: 5px; "><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">Seating Capacity - {{ car.0.sitting}}</div>
+                        </td>
+                        <td>
+                            <div class="bord" style="padding: 5px; margin-left: 10px;"><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">Fuel Tank - Capacity {{ car.0.tank}}</div>
+                        </td>
+                        <td>
+                            <div class="bord" style="padding: 5px; margin-left: 10px;"><img src="{% static 'img/tick.jpg' %}" width="15" style="margin-right: 10px;" alt="no logo" srcset="">Sun Roof - {{ car.0.sunroof}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </div>
+        </table>
+    </div>
+    {% else %}
+    <div class="addresss">
+        here we wite name and price
+    </div>
+    <div class="imags">
+        <div class="blkimg">
+            <img src="#" alt="no img" srcset="">
+        </div>
+        <div class="blkimgs">
+            <img src="#" alt="no img" srcset="">
+            <img src="#" alt="no img" srcset="">
+            <img src="#" alt="no img" srcset="">
+            <img src="#" alt="no img" srcset="">
+        </div>
+        specification
+        <div class="info">
+            <div class="set">
+                <div><img src="#" alt="no logo" srcset=""> Brand</div>
+                <div><img src="#" alt="no logo" srcset="">Model</div>
+                <div><img src="#" alt="no logo" srcset="">Body Type</div>
+            </div>
+            <div class="set">
+                <div><img src="#" alt="no logo" srcset="">Mileage</div>
+                <div><img src="#" alt="no logo" srcset="">fuel Type</div>
+                <div><img src="#" alt="no logo" srcset="">Transmission</div>
+            </div>
+            <div class="set">
+                <div><img src="#" alt="no logo" srcset="">Seating Capacity</div>
+                <div><img src="#" alt="no logo" srcset="">Sun Roof</div>
+                <div><img src="#" alt="no logo" srcset="">Fuel Tank Capacity</div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="lin"></div>
+
+    <div class="feas">
+        <div class="feat">
+            Feature
+        </div>
+        <div class="set">
+            <div class="featurs" style="font-size: 1.5em;"><img src="{% static 'img/tick.png' %}" alt="no tick" width="15" style="margin-right: 10px;">STANDARD DUAL AIRBAGS</div>
+            <div class="featurs" style="margin-left:73px ; font-size: 1.5em;"><img src="{% static 'img/tick.png' %}" alt="no tick" width="15" style="margin-right: 10px;">Air Conditioner</div>
+            <div class="featurs" style="font-size: 1.5em;"><img src="{% static 'img/tick.png' %}" alt="no tick" width="15" style="margin-right: 10px;">Anti-Lock Braking System</div>
+        </div>
+        <div class="set">
+            <div class="featurs" style="font-size: 1.5em;"><img src="{% static 'img/tick.png' %}" alt="no tick" width="15" style="margin-right: 10px;">Brake Assist (BA)</div>
+            <div class="featurs" style="margin-left:152px ; font-size: 1.5em;"><img src="{% static 'img/tick.png' %}" alt="no tick" width="15" style="margin-right: 10px;">Driver Airbag</div>
+            <div class="featurs" style="margin-left:113px ; font-size: 1.5em;"><img src="{% static 'img/tick.png' %}" alt="no tick" width="15" style="margin-right: 10px;">Electronic Brake-force Distribution (EBD)</div>
+        </div>
+    </div>
+    <div class="lin"></div>
+    <div class="heads" style="font-size: 1.5em;">
+        Honda Amaze Variants Table
+        <div class="headvar">
+            <div style="display: inline-block;">TYRE SIZE</div>
+            <div style="display: inline-block; ;">TYPE</div>
+            <div style="display: inline-block; ;">PRICE</div>
+        </div>
+        <div class="inside">
+            <a href="#">Honda Amaze</a>
+            <div style="display: inline-block; ">1498 cc, Automatic, Diesel, 24.7 kmpl</div>
+            <div style="display: inline-block; ">Rs.6.32 Lakh</div>
+        </div>
+        <div class="inside">
+            <a href="#">E</a>
+            <div style="display: inline-block; "> 1199 cc, Manual, Petrol, 18.6 kmpl</div>
+            <div style="display: inline-block;"> Rs.6.32 Lakh</div>
+        </div>
+        <div class="inside">
+            <a href="#">S</a>
+            <div style="display: inline-block; ">1199 cc, Manual, Petrol, 18.6 kmpl</div>
+            <div style="display: inline-block;"> Rs.7.16 Lakh</div>
+        </div>
+
+        <div class="inside">
+            <a href="#">S CVT</a>
+            <div style="display: inline-block; ">1199 cc, Automatic, Petrol, 18.6 kmpl</div>
+            <div style="display: inline-block;">Rs. 8.06 Lakh</div>
+        </div>
+        <div class="inside">
+            <a href="#">VX</a>
+            <div style="display: inline-block; ">1199 cc, Manual, Petrol, 18.6 kmpl</div>
+            <div style="display: inline-block;">Rs. 8.22 Lakh</div>
+        </div>
+        <div class="inside">
+            <a href="#">E Diesel</a>
+            <div style="display: inline-block; ">1498 cc, Manual, Diesel, 24.7 kmpl</div>
+            <div style="display: inline-block;"> Rs. 8.66 Lakh</div>
+        </div>
+        <div class="inside">
+            <a href="#">VX CVT</a>
+            <div style="display: inline-block; ">1199 cc, Automatic, Petrol, 18.6 kmpl</div>
+            <div style="display: inline-block; ">Rs. 9.05 Lakh</div>
+        </div>
+        <div class="inside">
+            <a href="#">S Diesel</a>
+            <div style="display: inline-block; "> 1498 cc, Manual, Diesel, 24.7 kmpl</div>
+            <div style="display: inline-block; ;">Rs. 9.26 Lakh</div>
+        </div>
+        <div class="inside">
+            <a href="#">VX Diesel</a>
+            <div style="display: inline-block; "> 1498 cc, Manual, Diesel, 24.7 kmpl</div>
+            <div style="display: inline-block; ;">Rs. 10.25 Lakh</div>
+        </div>
+    </div>
+    <h1 class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Honda Amaze
+    </h1>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model conts">
+                model name
+            </div>
+            <div class="model-price conts">
+                model price
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            FEATURES
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model">
+                model name
+            </div>
+            <div class="model-price">
+                model price
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            SUSPENSIONS, BRAKES & STEERING
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model">
+                model name
+            </div>
+            <div class="model-price">
+                model price
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            DIMENSIONS & CAPACITY
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model">
+                model name
+            </div>
+            <div class="model-price">
+                model price
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            LOCKS, SECURITY, SAFETY
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model">
+                model name
+            </div>
+            <div class="model-price">
+                model price
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            COMFORT & CONVENIENCE
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model">
+                model name
+            </div>
+            <div class="model-price">
+                model price
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            INTERIOR FEATURES & SEAT
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model">
+                model name
+            </div>
+            <div class="model-price">
+                model price
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            EXTERIOR FEATURES
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model">
+                model name
+            </div>
+            <div class="model-price">
+                model price
+            </div>
+        </div>
+
+    </div>
+    <div class="dropdown">
+        <button class="selo" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ENTERTAINMENT, INFORMATION & SYSTEM
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="model">
+                model name
+            </div>
+            <div class="model-price">
+                model price
+            </div>
+        </div>
+
+    </div>
+</div>{% endblock %}

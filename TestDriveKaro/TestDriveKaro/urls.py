@@ -33,5 +33,6 @@ urlpatterns = [
     path('privacy',views.privacy,name='privacy'),
     path('term',views.term,name='term'),
     path('about',views.about,name='about'),
+    path('carinfo',views.carinfo,name='carinfo'),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
