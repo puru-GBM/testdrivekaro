@@ -164,14 +164,14 @@
     <form action="filterdata" method="post">
         {% csrf_token %}
         <div class="blac">
-            <select name="topbrand" id="select-profession" class=" sel active flo" title="topbrand">
+            <select name="topbrand" id="select-profession" class="selct sel active flo" title="topbrand">
             
-                <option selected="true" disabled="disabled"  >Top Brands</option>
-                <option class="k"  value="Maruti Suzuki">Maruti Suzuki</option>
-                <option class="k"  value="Hyundai"> Hyundai</option>
-                <option class="k"  value="TATA">Tata</option>
-                <option class="k"  value="MAHINDRA">Mahindra</option>
-                <option class="k"  value="Honda">Honda</option>
+                <option selected="true" disabled="disabled" >Top Brands</option>
+                <option class="k" value="Honda">Honda</option>
+                <option class="k" value="Hyundai">Hyundai</option>
+                <option class="k" value="MAHINDRA">Mahindra</option>
+                <option class="k" value="Maruti Suzuki">Maruti Suzuki</option>
+                <option class="k" value="TATA">Tata</option>
                 
            
           
@@ -179,31 +179,31 @@
         </div>
         <div class="blac">
             <select name="luxury" id="select-superpower" class=" sel flo" title="luxury">
-                <option selected="true" disabled="disabled"  >Luxury</option>
-                <option class="k"  value="Mercedes-Benz">Mercedes</option>
-                <option class="k"  value="Jaguar">Jaguar</option>
-                <option class="k"  value="Volvo">Volvo</option>
-                <option class="k"  value="BMW">BMW</option>
-                <option class="k"  value="Audi">Audi</option>
+                <option selected="true" disabled="disabled" >Luxury</option>
+                <option class="k" value="Audi">Audi</option>
+                <option class="k" value="BMW">BMW</option>
+                <option class="k" value="Jaguar">Jaguar</option>
+                <option class="k" value="Mercedes-Benz">Mercedes</option>
+                <option class="k" value="Volvo">Volvo</option>
             </select>
         </div>
         <div class="blac">
-            <select name="color" id="select-superpower" class=" sel flo " title="color">
-                <option selected="true" disabled="disabled"  >Color</option>
-                <option  class="k"  value="black">Black</option>
-                <option class="k"  value="red">Red</option>
-                <option class="k"  value="blue">Blue</option>
-                <option class="k"  value="white">White</option>
-                <option class="k"  value="silver">Silver</option>
+            <select name="color" id="select-superpower" class="selct sel flo" title="color">
+                <option selected="true" disabled="disabled" >Color</option>
+                <option  class="k"   value="black">Black</option>
+                <option class="k"   value="blue">Blue</option>
+                <option class="k"   value="red">Red</option>
+                <option class="k"   value="silver">Silver</option>
+                <option class="k"   value="white">White</option>
             </select>
         </div>
         <div class="blac">
-            <select name="price" id="select-superpower" class=" sel flo" title="price">
-                <option selected="true" disabled="disabled" >Price</option>
-                <option class="k" value="100000 - 1000000">1 lac-10 Lac</option>
-                <option class="k" value="1000000 - 2000000">10 lac-20 Lac</option>
-                <option class="k" value="2000000 - 5000000">20 lac-50 Lac</option>
-                <option class="k" value="5000000 - 100000000000">50 lac and more</option>
+            <select name="price" id="select-superpower" class="selct sel flo" title="price">
+                <option selected="true" disabled="disabled">Price</option>
+                <option class="k"  value="100000 - 1000000">1 lac-10 Lac</option>
+                <option class="k"  value="1000000 - 2000000">10 lac-20 Lac</option>
+                <option class="k"  value="2000000 - 5000000">20 lac-50 Lac</option>
+                <option class="k"  value="5000000 - 10000000000">50 lac and more</option>
             </select>
         </div>
 
@@ -280,8 +280,10 @@
 </div>
 <!-- this is the selected data -->
 
-{% if filt %} {% if filt|length == 0 %}
-<h1 style="text-align: center;"> nothing to see here</h1> {% endif %}
+
+{% if filt|length == 0 %}
+<div class="lin"></div>
+<h1 style="text-align: center;"> nothing to see here in Top Brands</h1> {% endif %} {% if filt %}
 <div class="late-car">
     <div class="lin"></div>
     <div class="late-head">
@@ -305,8 +307,10 @@
     <div class="late-content-row">
         {% endif %} {% endfor %}
     </div>
-    {% elif filts %} {% if filts|length == 0 %}
-    <h1 style="text-align: center;"> nothing to see here</h1> {% endif %}
+    {% endif %} {% if filts|length == 0 %}
+    <div class="lin"></div>
+
+    <h1 style="text-align: center;"> nothing to see here in Luxury</h1> {% endif %}{% if filts %}
 
 </div>
 <div class="late-car">

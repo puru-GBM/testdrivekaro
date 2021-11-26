@@ -33,3 +33,17 @@ class filter_luxury(models.Model):
 
     def __str__(self):
         return self.model
+
+class brand_top(models.Model):
+    name=models.CharField(max_length=50)
+    logo=models.ImageField(upload_to="media/top/logo" ,default="")
+
+    def __str__(self):
+        return self.name
+
+class brand_luxury (models.Model):
+    name=models.CharField(max_length=50)
+    logo=models.ImageField(upload_to="media/luxury/logo" ,default="")
+
+    def __str__(self):
+        return self.name

@@ -1,2 +1,25 @@
-{% extends 'basic.html' %} {% block title %} Top Brands {% endblock %} {% block body %}
-<p>blody stupid</p> {% endblock %}
+{% extends 'basic.html' %} {% block title %} Top Brands {% endblock %} {% block css %}
+<style>
+    .leftss {
+        display: inline-block;
+        margin-top: 50px;
+        padding: 10px;
+        border: 2px solid blue;
+    }
+    
+    .right {
+        display: inline-block;
+        border: 2px solid green;
+        padding: 10px;
+    }
+</style>{% endblock %} {% block body %}
+<div class="leftss">
+    left side
+
+
+</div>
+<div class="right">
+    right side
+</div>
+
+{% endblock %}

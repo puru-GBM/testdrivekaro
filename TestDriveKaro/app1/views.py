@@ -1,34 +1,17 @@
 from django.db import models
 from django.shortcuts import render
 from math import ceil
-from .models import Contact, filter_luxury, filter_top
+from .models import Contact, filter_luxury, filter_top,brand_top,brand_luxury
 
 # Create your views here.
 
 def index(request):
-    cars = filter_top.objects.all()
-    cars2 = filter_luxury.objects.all()
-    brand=[]
-    brands=[]
+    cars = brand_top.objects.all()
+    cars2 = brand_luxury.objects.all()
     n=len(cars)
     n2=len(cars2)
     nslide= n//4 + ceil((n/4) - (n//4))
-    n2slide= n2//4 + ceil((n2/4) - (n2//4))
-    
-    # for i in range(n):
-    #     if cars[i].TopBrands not in brand:
-    #         data={
-    #             'name':cars[i].TopBrands
-    #             'img' :
-    #         }
-    #         brand.append(data)
-    # for i in range(n2):
-    #     if cars2[i].Luxury not in brands:
-    #         brands.append(cars2[i].Luxury)
-
-
-    print(brand , brands)
-    params={'no_of_slides':nslide,'range':range(nslide),'car':brand,'cars':brands}
+    params={'no_of_slides':nslide,'range':range(nslide),'car':cars,'cars':cars2}
     return render(request,'index.html',params)
 def ind(request):
     

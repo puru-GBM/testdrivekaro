@@ -876,11 +876,11 @@
                     <select name="topbrand" id="select-profession" class="selct sel active flo" title="topbrand">
                     
                         <option selected="true" disabled="disabled" >Top Brands</option>
-                        <option class="k" value="Maruti Suzuki">Maruti Suzuki</option>
-                        <option class="k" value="Hyundai"> Hyundai</option>
-                        <option class="k" value="TATA">Tata</option>
-                        <option class="k" value="MAHINDRA">Mahindra</option>
                         <option class="k" value="Honda">Honda</option>
+                        <option class="k" value="Hyundai">Hyundai</option>
+                        <option class="k" value="MAHINDRA">Mahindra</option>
+                        <option class="k" value="Maruti Suzuki">Maruti Suzuki</option>
+                        <option class="k" value="TATA">Tata</option>
                         
                    
                   
@@ -889,21 +889,21 @@
                 <div class="blac">
                     <select name="luxury" id="select-superpower" class=" sel flo" title="luxury">
                         <option selected="true" disabled="disabled" >Luxury</option>
-                        <option class="k" value="Mercedes-Benz">Mercedes</option>
-                        <option class="k" value="Jaguar">Jaguar</option>
-                        <option class="k" value="Volvo">Volvo</option>
-                        <option class="k" value="BMW">BMW</option>
                         <option class="k" value="Audi">Audi</option>
+                        <option class="k" value="BMW">BMW</option>
+                        <option class="k" value="Jaguar">Jaguar</option>
+                        <option class="k" value="Mercedes-Benz">Mercedes</option>
+                        <option class="k" value="Volvo">Volvo</option>
                     </select>
                 </div>
                 <div class="blac">
                     <select name="color" id="select-superpower" class="selct sel flo" title="color">
                         <option selected="true" disabled="disabled" >Color</option>
                         <option  class="k"   value="black">Black</option>
-                        <option class="k"   value="red">Red</option>
                         <option class="k"   value="blue">Blue</option>
-                        <option class="k"   value="white">White</option>
+                        <option class="k"   value="red">Red</option>
                         <option class="k"   value="silver">Silver</option>
+                        <option class="k"   value="white">White</option>
                     </select>
                 </div>
                 <div class="blac">
@@ -927,31 +927,31 @@
 
             <section class="center slider">
                 <div>
-                    <img src="{% static 'img/carlogo/1.png' %}"><span>Chervolet</span>
+                    <img src="{% static 'img/carlogo/chevrolet.png' %}"><span>Chervolet</span>
                 </div>
                 <div>
-                    <img src="{% static 'img/carlogo/4.png' %}"><span>Jaguar</span>
+                    <img src="{% static 'img/carlogo/jaguar.png' %}"><span>Jaguar</span>
                 </div>
                 <div>
-                    <img src="{% static 'img/carlogo/2.png' %}"><span>Ford</span>
+                    <img src="{% static 'img/carlogo/ford.png' %}"><span>Ford</span>
                 </div>
                 <div>
-                    <img src="{% static 'img/carlogo/3.png' %}"><span>Honda</span>
+                    <img src="{% static 'img/carlogo/honda.png' %}"><span>Honda</span>
                 </div>
                 <div>
-                    <img src="{% static 'img/carlogo/5.png' %}"><span>Jeep</span>
+                    <img src="{% static 'img/carlogo/jeep.png' %}"><span>Jeep</span>
                 </div>
                 <div>
-                    <img src="{% static 'img/carlogo/6.png' %}"><span>Mercedes</span>
+                    <img src="{% static 'img/carlogo/mercedes.png' %}"><span>Mercedes</span>
                 </div>
                 <div>
-                    <img src="{% static 'img/carlogo/7.png' %}"><span>MG</span>
+                    <img src="{% static 'img/carlogo/MG.png' %}"><span>MG</span>
                 </div>
                 <div id="go">
-                    <img src="{% static 'img/carlogo/8.png' %}"><span>Toyota</span>
+                    <img src="{% static 'img/carlogo/toyota.png' %}"><span>Toyota</span>
                 </div>
                 <div>
-                    <img src="{% static 'img/carlogo/9.png' %}"><span>Volksvegen</span>
+                    <img src="{% static 'img/carlogo/valk.png' %}"><span>Volksvegen</span>
                 </div>
             </section>
         </div>
@@ -959,22 +959,22 @@
 
 
         <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Browse All Cars</button>
-            <div id="myDropdown" class="dropdown-content">
-                <div class="pera">
+            <button onclick="myFunction()" class="dropbtn">Browse All Brands</button>
+            <div class="pera">
+                <div id="myDropdown" class="dropdown-content" style="background-color: rgba(250, 210, 210, 0.479); border-radius: 15px;">
                     <div class="conts">
                         {% if car %} {% for i in car|slice:'0:' %}
                         <a href="#">
                             <div class="inners">
                                 <div class="images">
-                                    <img src="/media/{{i.img}}" alt="no img" width="80">
+                                    <img src="/media/{{i.logo}}" alt="no img" width="80">
                                 </div>
+
                                 <div class="names">
-                                    {{i.TopBrands}}
+                                    {{i.name}}
                                 </div>
                             </div>
-                        </a>
-                        {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
+                        </a> {% if forloop.counter|divisibleby:6 and forloop.counter > 0 and not forloop.last %}
                     </div>
                     <div class="conts">
                         {% endif %} {% endfor %}
@@ -985,14 +985,14 @@
                         <a href="#">
                             <div class="inners">
                                 <div class="images">
-                                    <img src="/media/{{i.img}}" alt="no img" width="80">
+                                    <img src="/media/{{i.logo}}" alt="no img" width="80">
                                 </div>
                                 <div class="names">
-                                    {{i.Luxury}}
+                                    {{i.name}}
                                 </div>
                             </div>
                         </a>
-                        {% if forloop.counter|divisibleby:5 and forloop.counter > 0 and not forloop.last %}
+                        {% if forloop.counter|divisibleby:6 and forloop.counter > 0 and not forloop.last %}
                     </div>
                     <div class="conts">
                         {% endif %} {% endfor %}
@@ -1208,7 +1208,7 @@
 
     <script>
         /* When the user clicks on the button,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                toggle between hiding and showing the dropdown content */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        toggle between hiding and showing the dropdown content */
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
